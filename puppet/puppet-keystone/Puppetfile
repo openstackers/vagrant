@@ -1,0 +1,28 @@
+forge "http://forge.puppetlabs.com"
+
+# Stdlib will be inherited, from mysql module for instance
+
+mod 'puppetlabs/mysql', ">3.0.0"
+
+mod 'puppetlabs/inifile'
+
+#mod 'puppetlabs/mongodb'
+
+mod 'puppetlabs/rabbitmq'
+
+forge "http://github.stackforge.com"
+
+mod 'keystone',
+  :git => 'https://github.com/stackforge/puppet-keystone.git'
+
+mod 'memcached',
+  :git => 'https://github.com/saz/puppet-memcached.git'
+
+#mod 'nova',
+#  :git => 'https://github.com/stackforge/puppet-nova.git'
+
+#mod 'openstack_extras',
+#  :git => 'https://github.com/stackforge/puppet-openstack_extras.git'
+
+mod 'openstacklib',
+  :git => 'https://github.com/stackforge/puppet-openstacklib.git'

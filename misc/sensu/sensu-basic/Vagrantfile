@@ -1,0 +1,94 @@
+$LOAD_PATH << ENV['VAGRANT_LIB']
+
+require 'helpers'
+
+fatal ('Unsupported platform') unless PLATFORMS.include?(platform)
+
+@network1 = '192.168.130'
+@network2 = '192.168.131'
+@network3 = '192.168.132'
+
+@hosts=Hosts.new('os.tst')
+@hosts.add('monitor', [ "#{@network1}.11", "#{@network2}.11", "#{@network3}.11" ])
+@hosts.add('client1', [ "#{@network1}.12", "#{@network2}.12", "#{@network3}.12" ])
+
+Vagrant.configure('2') do |config|
+  config.vm.define 'monitor' do |vm|
+    host = 'monitor'
+    vm.vm.box = platform
+    vm.vm.provider :libvirt do |domain|
+      domain.memory = 1024
+      domain.cpus = 1
+      domain.volume_cache = 'none'
+    end
+    vm.vm.synced_folder './', '/vagrant', type: "rsync"
+    @hosts.get(host).each do |ip|
+      vm.vm.network :private_network, :ip => ip
+    end
+    vm.vm.hostname = @hosts.fqdn(host)
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'pre.sh'
+      s.args = [ @hosts.to_s ]
+    end
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'repos/openstack.sh'
+      s.args = [ platform, openstack, openstack_version, flea.to_s ]
+    end
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'repos/sensu.sh'
+      s.args = [ platform ]
+    end
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'SSL-CA.sh'
+      s.args = [ 'OPM' ]
+    end
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'SSL-cert.sh'
+      s.args = [ 'OPM', 'rabbitmq', 'server' ]
+    end
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'rabbitmq-SSL.sh'
+      s.args = [ 'rabbitmq', 'sensu' ]
+    end
+    vm.vm.provision 'shell', path: common + 'redis.sh'
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'SSL-cert.sh'
+      s.args = [ 'OPM', 'sensu-server', 'client' ]
+    end
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'sensu-server.sh'
+      s.args = [ 'sensu-server' ]
+    end
+  end
+
+  config.vm.define 'client1' do |vm|
+    host = 'client1'
+    vm.vm.box = platform
+    vm.vm.provider :libvirt do |domain|
+      domain.memory = 512
+      domain.cpus = 1
+      domain.volume_cache = 'none'
+    end
+    vm.vm.synced_folder './', '/vagrant', :rsync => true
+    @hosts.get(host).each do |ip|
+      vm.vm.network :private_network, :ip => ip
+    end
+    vm.vm.hostname = @hosts.fqdn(host)
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'pre.sh'
+      s.args = [ @hosts.to_s ]
+    end
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'repos/openstack.sh'
+      s.args = [ platform, openstack, openstack_version, flea.to_s ]
+    end
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'repos/sensu.sh'
+      s.args = [ platform ]
+    end
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'sensu-client.sh'
+      s.args = [ '192.168.130.11', '192.168.130.12' ]
+    end
+  end
+end

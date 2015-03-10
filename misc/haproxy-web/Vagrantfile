@@ -1,0 +1,74 @@
+$LOAD_PATH << ENV['VAGRANT_LIB']
+
+require 'helpers'
+
+fatal ('Unsupported platform') unless PLATFORMS.include?(platform)
+
+@network1 = '192.168.30'
+
+@hosts=Hosts.new('os.tst')
+@hosts.add('lb1',  [ "#{@network1}.10" ])
+@hosts.add('web1', [ "#{@network1}.11" ])
+@hosts.add('web2', [ "#{@network1}.12" ])
+
+Vagrant.configure('2') do |config|
+  config.vm.define 'lb1' do |vm|
+    host = 'lb1'
+    vm.vm.box = platform
+    vm.vm.provider :libvirt do |domain|
+      domain.memory = 512
+      domain.cpus = 1
+      domain.volume_cache = 'none'
+    end
+    vm.vm.synced_folder './', '/vagrant', type: "rsync"
+    @hosts.get(host).each do |ip|
+      vm.vm.network :private_network, :ip => ip
+    end
+    vm.vm.hostname = @hosts.fqdn(host)
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'pre.sh'
+      s.args = [ @hosts.to_s ]
+    end
+    vm.vm.provision 'shell', path: common + 'haproxy.sh'
+  end
+
+  config.vm.define 'web1' do |vm|
+    host = 'web1'
+    vm.vm.box = platform
+    vm.vm.provider :libvirt do |domain|
+      domain.memory = 512
+      domain.cpus = 1
+      domain.volume_cache = 'none'
+    end
+    vm.vm.synced_folder './', '/vagrant', type: "rsync"
+    @hosts.get(host).each do |ip|
+      vm.vm.network :private_network, :ip => ip
+    end
+    vm.vm.hostname = @hosts.fqdn(host)
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'pre.sh'
+      s.args = [ @hosts.to_s ]
+    end
+    vm.vm.provision 'shell', path: common + 'web-server.sh'
+  end
+
+  config.vm.define 'web2' do |vm|
+    host = 'web2'
+    vm.vm.box = platform
+    vm.vm.provider :libvirt do |domain|
+      domain.memory = 512
+      domain.cpus = 1
+      domain.volume_cache = 'none'
+    end
+    vm.vm.synced_folder './', '/vagrant', type: "rsync"
+    @hosts.get(host).each do |ip|
+      vm.vm.network :private_network, :ip => ip
+    end
+    vm.vm.hostname = @hosts.fqdn(host)
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'pre.sh'
+      s.args = [ @hosts.to_s ]
+    end
+    vm.vm.provision 'shell', path: common + 'web-server.sh'
+  end
+end
