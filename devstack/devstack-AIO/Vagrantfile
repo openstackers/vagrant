@@ -1,22 +1,22 @@
-common='/home/gil/pro/lib/provision/'
+$LOAD_PATH << ENV['VAGRANT_LIB']
 
-require common + 'lib/helpers'
+require 'helpers'
 
 fatal ('Unsupported platform') unless PLATFORMS.include?(platform)
 
-@network1 = '192.168.64'
-@network2 = '192.168.65'
-@network3 = '192.168.66'
+@network1 = '192.168.10'
+@network2 = '192.168.11'
+@network3 = '192.168.12'
 
 @hosts=Hosts.new('os.tst')
-@hosts.add('aio', [ "#{@network1}.11", "#{@network2}.11", "#{@network3}.11" ])
+@hosts.add('aio', [ "#{@network1}.10", "#{@network2}.10", "#{@network3}.10" ])
 
 Vagrant.configure('2') do |config|
   config.vm.define 'aio' do |vm|
     host = 'aio'
     vm.vm.box = platform
     vm.vm.provider :libvirt do |domain|
-      domain.memory = 2048
+      domain.memory = 6144
       domain.cpus = 2
       domain.volume_cache = 'none'
     end
@@ -30,13 +30,8 @@ Vagrant.configure('2') do |config|
       s.args = [ @hosts.to_s ]
     end
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'repos/openstack.sh'
-      s.args = [ platform, openstack, openstack_version, "#{flea}" ]
+      s.path = common + 'devstack.sh'
+      s.args = [ '192.168.10.0/24' ]
     end
-    vm.vm.provision 'shell' do |s|
-      s.path = common + 'opm.sh'
-      s.args = [ opm, opm_branch ]
-    end
-    vm.vm.provision 'shell', path: common + 'puppet_no_master.sh'
   end
 end

@@ -4,7 +4,7 @@ require 'helpers'
 
 fatal ('Unsupported platform') unless PLATFORMS.include?(platform)
 
-@network1 = '192.168.30'
+@network1 = '192.168.16'
 
 @hosts=Hosts.new('os.tst')
 @hosts.add('lb1',  [ "#{@network1}.10" ])

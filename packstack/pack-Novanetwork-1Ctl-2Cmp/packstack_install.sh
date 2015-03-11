@@ -1,8 +1,8 @@
 # Pacstack install with Neutron
 
-export controller_ip=192.168.198.10
-export node1_ip=192.168.198.11
-export node2_ip=192.168.198.12
+export controller_ip=$1
+export node1_ip=$2
+export node2_ip=$3
 export novanetwork_pubif=eth0
 export novanetwork_privif=eth1
 export novacompute_privif=eth1
@@ -16,4 +16,4 @@ packstack --install-hosts=${controller_ip},${node1_ip},${node2_ip} \
           --novacompute-privif=${novacompute_privif} \
           --keystone-admin-passwd=redhat \
           --keystone-demo-passwd=redhat \
-          --ssh-public-key=/root/.ssh/id_rsa.pub
+          --ssh-public-key=/root/.ssh/id_rsa.pub -d

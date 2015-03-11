@@ -4,14 +4,14 @@ require 'helpers'
 
 fatal ('Unsupported platform') unless PLATFORMS.include?(platform)
 
-@network1 = '192.168.50'
-@network2 = '192.168.51'
-@network3 = '192.168.52'
+@network1 = '192.168.51'
+@network2 = '192.168.52'
+@network3 = '192.168.53'
 
 @hosts=Hosts.new('os.tst')
 @hosts.add('controller1', [ "#{@network1}.11", "#{@network2}.11", "#{@network3}.11" ])
 @hosts.add('networker1',  [ "#{@network1}.12", "#{@network2}.12", "#{@network3}.12" ])
-@hosts.add('compute1',    [ "#{@network1}.12", "#{@network2}.12", "#{@network3}.12" ])
+@hosts.add('compute1',    [ "#{@network1}.13", "#{@network2}.13", "#{@network3}.13" ])
 
 Vagrant.configure('2') do |config|
   config.vm.define 'controller1' do |vm|
@@ -29,7 +29,7 @@ Vagrant.configure('2') do |config|
       s.path = common + 'pre.sh'
       s.args = [ @hosts.to_s ]
     end
-    vm.vm.provision 'shell',  path: common + 'files/ssh_key1.sh'
+#    vm.vm.provision 'shell',  path: common + 'files/ssh_key1.sh'
 
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
@@ -41,7 +41,7 @@ Vagrant.configure('2') do |config|
     end
     vm.vm.provision 'shell' do |s|
       s.path = 'packstack_install.sh'
-      s.args = [ '192.168.50.11' ]
+      s.args = [ '192.168.51.11', '192.168.51.12', '192.168.51.13' ]
     end
   end
 
@@ -61,7 +61,7 @@ Vagrant.configure('2') do |config|
       s.path = common + 'pre.sh'
       s.args = [ @hosts.to_s ]
     end
-    vm.vm.provision 'shell',  path: common + 'files/ssh_key1.sh'
+#    vm.vm.provision 'shell',  path: common + 'files/ssh_key1.sh'
 
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
@@ -89,7 +89,7 @@ Vagrant.configure('2') do |config|
       s.path = common + 'pre.sh'
       s.args = [ @hosts.to_s ]
     end
-    vm.vm.provision 'shell',  path: common + 'files/ssh_key1.sh'
+#    vm.vm.provision 'shell',  path: common + 'files/ssh_key1.sh'
 
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'

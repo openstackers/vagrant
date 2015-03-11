@@ -4,9 +4,9 @@ require 'helpers'
 
 fatal ('Unsupported platform') unless PLATFORMS.include?(platform)
 
-@network1 = '192.168.110'
-@network2 = '192.168.111'
-@network3 = '192.168.112'
+@network1 = '192.168.17'
+@network2 = '192.168.18'
+@network3 = '192.168.19'
 
 @hosts=Hosts.new('os.tst')
 @hosts.add('lb1',  [ "#{@network1}.10", "#{@network2}.10", "#{@network3}.10" ])
@@ -215,7 +215,7 @@ Vagrant.configure('2') do |config|
     end
     vm.vm.provision 'shell' do |s|
       s.path = common + 'sensu-client.sh'
-      s.args = [ '192.168.130.11', '192.168.130.12' ]
+      s.args = [ '192.168.17.11', '192.168.17.12' ]
     end
   end
 end

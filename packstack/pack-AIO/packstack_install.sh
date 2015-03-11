@@ -7,4 +7,4 @@ packstack --install-hosts=$host \
           --keystone-admin-passwd=redhat \
           --keystone-demo-passwd=redhat \
           --ssh-public-key=/root/.ssh/id_rsa.pub \
-          --nagios-install=n
+          --nagios-install=n -d

@@ -1,8 +1,8 @@
 # Pacstack install with Neutron
 
-export controller=192.168.88.10
-export networker=192.168.88.11
-export node1=192.168.88.12
+export controller=$1
+export networker=$2
+export node1=$3
 
 packstack --install-hosts=${controller},${node1} \
           --os-network-hosts=${networker} \
@@ -12,4 +12,4 @@ packstack --install-hosts=${controller},${node1} \
           --keystone-admin-passwd=redhat \
           --keystone-demo-passwd=redhat \
           --ssh-public-key=/root/.ssh/id_rsa.pub \
-          --nagios-install=n
+          --nagios-install=n -d

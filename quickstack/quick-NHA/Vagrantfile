@@ -4,9 +4,9 @@ require 'helpers'
 
 fatal ('Unsupported platform') unless PLATFORMS.include?(platform)
 
-@network1 = '192.168.50'
-@network2 = '192.168.51'
-@network3 = '192.168.52'
+@network1 = '192.168.85'
+@network2 = '192.168.86'
+@network3 = '192.168.87'
 
 @hosts=Hosts.new('os.tst')
 @hosts.add('nha', [ "#{@network1}.11", "#{@network2}.11", "#{@network3}.11" ])

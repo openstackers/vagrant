@@ -1,7 +1,7 @@
 # Pacstack install with Neutron: One Controller + One computes
 
-export controller_ip=192.168.98.10
-export node1_ip=192.168.98.11
+export controller_ip=$1
+export node1_ip=$2
 
 packstack --install-hosts=${controller_ip},${node1_ip} \
           --os-ceilometer-install=n \
@@ -10,4 +10,4 @@ packstack --install-hosts=${controller_ip},${node1_ip} \
           --keystone-admin-passwd=redhat \
           --keystone-demo-passwd=redhat \
           --ssh-public-key=/root/.ssh/id_rsa.pub \
-          --nagios-install=n \
+          --nagios-install=n -d
