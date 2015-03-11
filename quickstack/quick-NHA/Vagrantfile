@@ -20,7 +20,7 @@ Vagrant.configure('2') do |config|
       domain.cpus = 2
       domain.volume_cache = 'none'
     end
-    vm.vm.synced_folder './', '/vagrant', :rsync => true
+    vm.vm.synced_folder '.', '/vagrant', type: "rsync"
     @hosts.get(host).each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
