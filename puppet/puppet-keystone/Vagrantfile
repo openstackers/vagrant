@@ -2,8 +2,6 @@ common='/home/gil/pro/lib/provision/'
 
 require common + 'lib/helpers'
 
-fatal ('Unsupported platform') unless PLATFORMS.include?(platform)
-
 @network1 = '192.168.64'
 @network2 = '192.168.65'
 @network3 = '192.168.66'

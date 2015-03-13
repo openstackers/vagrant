@@ -106,3 +106,5 @@ class Hosts
     return hosts
   end
 end
+
+fatal ('Unsupported platform') unless PLATFORMS.include?(platform)

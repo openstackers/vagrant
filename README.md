@@ -29,7 +29,7 @@ export VAGRANT_QUICKSTACK=rpm```
 ```export VAGRANT_OPM=https://github.com/redhat-openstack/openstack-puppet-modules.git
 export VAGRANT_QUICKSTACK=https://github.com/redhat-openstack/astapor.git
 export VAGRANT_QUICKSTACK_BRANCH=master
-export VAGRANT_OPM=https://github.com/redhat-openstack/astapor.git
+export VAGRANT_OPM=https://github.com/redhat-openstack/openstack-puppet-modules.git
 export VAGRANT_OPM_BRANCH=master```  
 
 ## RUN  

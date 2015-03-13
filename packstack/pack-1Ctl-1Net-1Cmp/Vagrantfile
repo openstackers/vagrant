@@ -2,8 +2,6 @@ $LOAD_PATH << ENV['VAGRANT_LIB']
 
 require 'helpers'
 
-fatal ('Unsupported platform') unless PLATFORMS.include?(platform)
-
 @network1 = '192.168.51'
 @network2 = '192.168.52'
 @network3 = '192.168.53'
@@ -23,13 +21,12 @@ Vagrant.configure('2') do |config|
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
     @hosts.get(host).each do |ip|
       vm.vm.network :private_network, :ip => ip
-    end    
+    end
     vm.vm.hostname = @hosts.fqdn(host)
     vm.vm.provision 'shell' do |s|
       s.path = common + 'pre.sh'
       s.args = [ @hosts.to_s ]
     end
-#    vm.vm.provision 'shell',  path: common + 'files/ssh_key1.sh'
 
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
@@ -41,7 +38,7 @@ Vagrant.configure('2') do |config|
     end
     vm.vm.provision 'shell' do |s|
       s.path = 'packstack_install.sh'
-      s.args = [ '192.168.51.11', '192.168.51.12', '192.168.51.13' ]
+      s.args = [ @hosts.get(host)[0], @hosts.get(host)[1], @hosts.get(host)[2] ]
     end
   end
 
@@ -55,13 +52,12 @@ Vagrant.configure('2') do |config|
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
     @hosts.get(host).each do |ip|
       vm.vm.network :private_network, :ip => ip
-    end    
+    end
     vm.vm.hostname = @hosts.fqdn(host)
     vm.vm.provision 'shell' do |s|
       s.path = common + 'pre.sh'
       s.args = [ @hosts.to_s ]
     end
-#    vm.vm.provision 'shell',  path: common + 'files/ssh_key1.sh'
 
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
@@ -83,13 +79,12 @@ Vagrant.configure('2') do |config|
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
     @hosts.get(host).each do |ip|
       vm.vm.network :private_network, :ip => ip
-    end    
+    end
     vm.vm.hostname = @hosts.fqdn(host)
     vm.vm.provision 'shell' do |s|
       s.path = common + 'pre.sh'
       s.args = [ @hosts.to_s ]
     end
-#    vm.vm.provision 'shell',  path: common + 'files/ssh_key1.sh'
 
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'

@@ -2,8 +2,6 @@ $LOAD_PATH << ENV['VAGRANT_LIB']
 
 require 'helpers'
 
-fatal ('Unsupported platform') unless PLATFORMS.include?(platform)
-
 @network1 = '192.168.60'
 @network2 = '192.168.61'
 @network3 = '192.168.62'
@@ -23,7 +21,7 @@ Vagrant.configure('2') do |config|
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
     @hosts.get(host).each do |ip|
       vm.vm.network :private_network, :ip => ip
-    end    
+    end
     vm.vm.hostname = @hosts.fqdn(host)
     vm.vm.provision 'shell' do |s|
       s.path = common + 'pre.sh'
@@ -40,7 +38,7 @@ Vagrant.configure('2') do |config|
     end
     vm.vm.provision 'shell' do |s|
       s.path = 'packstack_install.sh'
-      s.args = [ '192.168.60.11', '192.168.60.12', '192.168.60.13' ]
+      s.args = [ @hosts.get(host)[0], @hosts.get(host)[1], @hosts.get(host)[2] ]
     end
   end
 
@@ -54,7 +52,7 @@ Vagrant.configure('2') do |config|
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
     @hosts.get(host).each do |ip|
       vm.vm.network :private_network, :ip => ip
-    end    
+    end
     vm.vm.hostname = @hosts.fqdn(host)
     vm.vm.provision 'shell' do |s|
       s.path = common + 'pre.sh'
@@ -81,7 +79,7 @@ Vagrant.configure('2') do |config|
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
     @hosts.get(host).each do |ip|
       vm.vm.network :private_network, :ip => ip
-    end    
+    end
     vm.vm.hostname = @hosts.fqdn(host)
     vm.vm.provision 'shell' do |s|
       s.path = common + 'pre.sh'

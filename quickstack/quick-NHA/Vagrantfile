@@ -2,8 +2,6 @@ $LOAD_PATH << ENV['VAGRANT_LIB']
 
 require 'helpers'
 
-fatal ('Unsupported platform') unless PLATFORMS.include?(platform)
-
 @network1 = '192.168.85'
 @network2 = '192.168.86'
 @network3 = '192.168.87'
