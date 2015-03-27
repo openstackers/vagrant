@@ -45,7 +45,7 @@ OFI 192.168.32.0/20
 Packstack 192.168.48.0/20 
 Puppet 192.168.64.0/20 
 Quickstack 192.168.80.0/20
-Restack 192.168.96.0/20
+Playstack 192.168.96.0/20
 Spinalstack 192.168.112.0/20
 Staypuft 192.168.128.0/20
 

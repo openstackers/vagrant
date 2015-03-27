@@ -1,0 +1,94 @@
+$LOAD_PATH << ENV['VAGRANT_LIB']
+
+require 'helpers'
+
+@network1 = '192.168.100'
+@network2 = '192.168.101'
+@network3 = '192.168.102'
+@network4 = '192.168.103'
+
+@hosts=Hosts.new('os.tst')
+@hosts.add('control1', [ "#{@network1}.11", "#{@network2}.11", "#{@network3}.11", "#{@network4}.11" ])
+@hosts.add('compute1', [ "#{@network1}.12", "#{@network2}.12", "#{@network3}.12", "#{@network4}.12" ])
+
+Vagrant.configure('2') do |config|
+  config.vm.define 'control1' do |vm|
+    host = 'control1'
+    vm.vm.box = platform
+    vm.vm.provider :libvirt do |domain|
+      domain.memory = 6144
+      domain.cpus = 2
+      domain.volume_cache = 'none'
+    end
+    vm.vm.synced_folder '.', '/vagrant', type: "rsync"
+    @hosts.get(host).each do |ip|
+      vm.vm.network :private_network, :ip => ip
+    end
+    vm.vm.hostname = @hosts.fqdn(host)
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'pre.sh'
+      s.args = [ @hosts.to_s ]
+    end
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'repos/openstack.sh'
+      s.args = [ platform, openstack, openstack_version, "#{flea}" ]
+    end
+#    vm.vm.provision 'shell', path: common + 'certificates.sh'
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'opm.sh'
+      s.args = [ opm, opm_branch ]
+    end
+    vm.vm.provision 'shell', path: common + 'selinux_off.sh'
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'puppet_no_master.sh'
+      s.args = [ '/usr/share/openstack-puppet/modules' ]
+    end
+    vm.vm.provision 'shell', path: common + 'fw.sh'
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'keystonerc.sh'
+      s.args = [ 'testing', @hosts.get(host)[0] ]
+    end
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'playstack.sh'
+      s.args = [ 'master', @hosts.get('control1')[0], @hosts.get('control1')[1], @hosts.get('control1')[2]]
+    end
+  end
+
+  config.vm.define 'compute1' do |vm|
+    host = 'compute1'
+    vm.vm.box = platform
+    vm.vm.provider :libvirt do |domain|
+      domain.memory = 4096
+      domain.cpus = 2
+      domain.volume_cache = 'none'
+    end
+    vm.vm.synced_folder '.', '/vagrant', type: "rsync"
+    @hosts.get(host).each do |ip|
+      vm.vm.network :private_network, :ip => ip
+    end
+    vm.vm.hostname = @hosts.fqdn(host)
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'pre.sh'
+      s.args = [ @hosts.to_s ]
+    end
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'repos/openstack.sh'
+      s.args = [ platform, openstack, openstack_version, "#{flea}" ]
+    end
+#    vm.vm.provision 'shell', path: common + 'certificates.sh'
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'opm.sh'
+      s.args = [ opm, opm_branch, 0 ]
+    end
+    vm.vm.provision 'shell', path: common + 'selinux_off.sh'
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'puppet_no_master.sh'
+      s.args = [ '/usr/share/openstack-puppet/modules' ]
+    end
+    vm.vm.provision 'shell', path: common + 'fw.sh'
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'playstack.sh'
+      s.args = [ 'master', @hosts.get('control1')[0], @hosts.get('control1')[1], @hosts.get('control1')[2]]
+    end
+  end
+end

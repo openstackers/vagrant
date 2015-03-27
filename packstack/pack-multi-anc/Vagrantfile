@@ -2,9 +2,9 @@ $LOAD_PATH << ENV['VAGRANT_LIB']
 
 require 'helpers'
 
-@network1 = '192.168.51'
-@network2 = '192.168.52'
-@network3 = '192.168.53'
+@network1 = '192.168.54'
+@network2 = '192.168.55'
+@network3 = '192.168.56'
 
 @hosts=Hosts.new('os.tst')
 @hosts.add('controller1', [ "#{@network1}.11", "#{@network2}.11", "#{@network3}.11" ])

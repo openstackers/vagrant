@@ -2,9 +2,9 @@ $LOAD_PATH << ENV['VAGRANT_LIB']
 
 require 'helpers'
 
-@network1 = '192.168.48'
-@network2 = '192.168.49'
-@network3 = '192.168.50'
+@network1 = '192.168.51'
+@network2 = '192.168.52'
+@network3 = '192.168.53'
 
 @hosts=Hosts.new('os.tst')
 @hosts.add('controller1', [ "#{@network1}.11", "#{@network2}.11", "#{@network3}.11" ])
@@ -35,10 +35,7 @@ Vagrant.configure('2') do |config|
       s.path = common + 'packstack_dist.sh'
       s.args = [ 'rpm' ]
     end
-    vm.vm.provision 'shell' do |s|
-      s.path = 'packstack_install.sh'
-      s.args = [ @hosts.get(host)[0], @hosts.get(host)[1] ]
-    end
+    vm.vm.provision 'shell', inline: 'packstack --answer-file=/vagrant/answer.cfg'
   end
 
   config.vm.define 'compute1' do |vm|

@@ -1,0 +1,103 @@
+---
+:scenario:
+  :nodes:
+    :aio:
+    - infra
+    - control
+    - network
+    - compute
+  :profiles:
+    :infra:
+    - mysql
+    - rabbitmq
+    :control:
+    - glance_control
+    - horizon
+    - keystone
+    - nova
+    - nova_control
+    - nova_neutron
+    :network:
+    - neutron
+    - neutron_control
+    - neutron_ml2
+    :compute:
+    - neutron
+    - neutron_ml2
+    - nova
+    - nova_compute
+    - nova_neutron
+    - nova_neutron_compute
+:os:
+  :include:
+  - ipa
+  - glance
+  - horizon
+  - keystone
+  - mysql
+  - neutron
+  - nova
+  - rabbitmq
+  :debug: false
+  :ssl: false
+  :verbose: true
+  :admin:
+    :email: admin@example.com
+    :password: testing
+    :token: testing
+  :glance:
+    :backend:
+      :file: "/var/lib/glance/images/"
+    :password: testing
+  :keystone:
+    :service_name: keystone
+    :password: testing
+  :neutron:
+    :agents:
+      :ml2:
+        :ovs:
+          :bridge_mappings:
+          - default:br-ex
+          :bridge_uplinks:
+          - br-ex:eth0
+          :enable_tunneling: true
+          :l2_population: false
+          :local_ip: "%{ipaddress_eth4}"
+          :tunnel_types:
+          - local
+          :vxlan_udp_port: '4789'
+    :plugins:
+      :ml2:
+        :enable_security_group: true
+        :flat_networks:
+        - "*"
+        :mechanism_drivers:
+        - openvswitch
+        :network_vlan_ranges: []
+        :sriov_agent_required: false
+        :supported_pci_vendor_devs: []
+        :tenant_network_types:
+        - local
+        :tunnel_id_ranges: []
+        :type_drivers:
+        - local
+        :vni_ranges:
+        - 10:100
+        :vxlan_group: ''
+    :metadata:
+      :shared_secret: testing
+    :password: testing
+  :rabbitmq:
+    :user: guest
+    :password: guest
+  :ip:
+    :admin: 192.168.98.10
+    :internal: 192.168.97.10
+    :public: 192.168.96.10
+  :dbms:
+    :root:
+      :password: testing
+  :horizon:
+    :secret_key: testing
+  :nova:
+    :password: testing
