@@ -6,7 +6,7 @@ require 'helpers'
 @network2 = '192.168.49'
 @network3 = '192.168.50'
 
-@hosts=Hosts.new('os.tst')
+@hosts=Hosts.new('packstack.tst')
 @hosts.add('pack1', [ "#{@network1}.11", "#{@network2}.11", "#{@network3}.11" ])
 
 Vagrant.configure('2') do |config|

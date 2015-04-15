@@ -1,12 +1,12 @@
-common='/home/gil/pro/lib/provision/'
+$LOAD_PATH << ENV['VAGRANT_LIB']
 
-require common + 'lib/helpers'
+require 'helpers'
 
 @network1 = '192.168.64'
 @network2 = '192.168.65'
 @network3 = '192.168.66'
 
-@hosts=Hosts.new('os.tst')
+@hosts=Hosts.new('puppet.tst')
 @hosts.add('aio', [ "#{@network1}.11", "#{@network2}.11", "#{@network3}.11" ])
 
 Vagrant.configure('2') do |config|
@@ -35,6 +35,17 @@ Vagrant.configure('2') do |config|
       s.path = common + 'opm.sh'
       s.args = [ opm, opm_branch ]
     end
-    vm.vm.provision 'shell', path: common + 'puppet_no_master.sh'
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'git_src.sh'
+      s.args = [ 'openstacklib', 'https://github.com/stackforge/puppet-openstacklib.git', 'master', '/usr/share/openstack-puppet/modules' ]
+    end
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'git_src.sh'
+      s.args = [ 'keystone', 'https://github.com/stackforge/puppet-keystone.git', 'master', '/usr/share/openstack-puppet/modules' ]
+    end
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'puppet_no_master.sh'
+      s.args = [ '/usr/share/openstack-puppet/modules' ]
+    end
   end
 end

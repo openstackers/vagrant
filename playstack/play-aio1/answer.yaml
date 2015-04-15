@@ -3,41 +3,28 @@
   :nodes:
     :aio:
     - infra
-    - control
-    - network
+    - controllers
+    - dashboard
+    - networker
     - compute
+  :include:
+  - keystone
+  - mysql
+  - rabbitmq
+  :ip:
+    :admin: 192.168.98.10
+    :internal: 192.168.97.10
+    :public: 192.168.96.10
   :profiles:
     :infra:
     - mysql
     - rabbitmq
-    :control:
-    - glance_control
-    - horizon
-    - keystone
-    - nova
-    - nova_control
-    - nova_neutron
-    :network:
-    - neutron
-    - neutron_control
-    - neutron_ml2
-    :compute:
-    - neutron
-    - neutron_ml2
-    - nova
-    - nova_compute
-    - nova_neutron
-    - nova_neutron_compute
-:os:
-  :include:
-  - ipa
-  - glance
-  - horizon
-  - keystone
-  - mysql
-  - neutron
-  - nova
-  - rabbitmq
+    :controllers:
+    - keystone_api
+    :dashboard: []
+    :networker: []
+    :compute: []
+:openstack:
   :debug: false
   :ssl: false
   :verbose: true
@@ -53,6 +40,7 @@
     :service_name: keystone
     :password: testing
   :neutron:
+    :tunnel: vxlan
     :agents:
       :ml2:
         :ovs:
@@ -64,7 +52,7 @@
           :l2_population: false
           :local_ip: "%{ipaddress_eth4}"
           :tunnel_types:
-          - local
+          - vxlan
           :vxlan_udp_port: '4789'
     :plugins:
       :ml2:
@@ -77,23 +65,18 @@
         :sriov_agent_required: false
         :supported_pci_vendor_devs: []
         :tenant_network_types:
-        - local
+        - vxlan
         :tunnel_id_ranges: []
         :type_drivers:
-        - local
+        - vxlan
         :vni_ranges:
         - 10:100
-        :vxlan_group: ''
     :metadata:
       :shared_secret: testing
     :password: testing
   :rabbitmq:
     :user: guest
     :password: guest
-  :ip:
-    :admin: 192.168.98.10
-    :internal: 192.168.97.10
-    :public: 192.168.96.10
   :dbms:
     :root:
       :password: testing

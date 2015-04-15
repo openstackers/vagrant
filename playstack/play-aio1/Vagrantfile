@@ -7,7 +7,7 @@ require 'helpers'
 @network3 = '192.168.98'
 @network4 = '192.168.99'
 
-@hosts=Hosts.new('os.tst')
+@hosts=Hosts.new('playstack.tst')
 @hosts.add('aio', [ "#{@network1}.10", "#{@network2}.10", "#{@network3}.10", "#{@network4}.10" ])
 
 Vagrant.configure('2') do |config|
@@ -42,14 +42,9 @@ Vagrant.configure('2') do |config|
       s.path = common + 'puppet_no_master.sh'
       s.args = [ '/usr/share/openstack-puppet/modules' ]
     end
-    vm.vm.provision 'shell', path: common + 'fw.sh'
-    vm.vm.provision 'shell' do |s|
-      s.path = common + 'keystonerc.sh'
-      s.args = [ 'testing', @hosts.get(host)[0] ]
-    end
     vm.vm.provision 'shell' do |s|
       s.path = common + 'playstack.sh'
-      s.args = [ 'master', @hosts.get(host)[0], @hosts.get(host)[1], @hosts.get(host)[2] ]
+      s.args = [ 'master', @hosts.get(host)[0], @hosts.get(host)[1], @hosts.get(host)[2], 'true' ]
     end
   end
 end

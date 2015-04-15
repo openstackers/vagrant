@@ -1,0 +1,23 @@
+---
+keystone::admin_token: testing
+keystone::database_connection: "mysql://keystone:testing@192.168.65.11/keystone"
+keystone::debug: false
+keystone::enable_ssl: false
+keystone::public_bind_host: "192.168.64.11"
+keystone::service_name: openstack-keystone
+keystone::verbose: true
+
+keystone::db::mysql::password: testing
+keystone::db::mysql::host: "192.168.65.11"
+keystone::db::mysql::allowed_hosts: '%'
+
+keystone::endpoint::public_url: "http://192.168.64.11:5000"
+keystone::endpoint::admin_url: "http://192.168.66.11:35357"
+keystone::endpoint::internal_url: "http://192.168.65.11:5000"
+keystone::endpoint::version: v3
+
+mysql::server::root_password: testing
+mysql::server::override_options:
+  mysqld:
+    bind-address: 0.0.0.0
+    default_storage_engine: InnoDB

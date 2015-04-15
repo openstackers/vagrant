@@ -6,7 +6,7 @@ require 'helpers'
 @network2 = '192.168.11'
 @network3 = '192.168.12'
 
-@hosts=Hosts.new('os.tst')
+@hosts=Hosts.new('devstack.tst')
 @hosts.add('aio', [ "#{@network1}.10", "#{@network2}.10", "#{@network3}.10" ])
 
 Vagrant.configure('2') do |config|
