@@ -1,5 +1,5 @@
 ---
-keystone::admin_token: testing
+keystone::admin_token: admin_token
 keystone::database_connection: "mysql://keystone:testing@192.168.65.11/keystone"
 keystone::debug: false
 keystone::enable_ssl: false

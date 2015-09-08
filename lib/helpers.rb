@@ -1,5 +1,5 @@
 # Helpers for Vagrant files
-PLATFORMS  = ['rhel6', 'rhel7', 'centos7', 'fedora21']
+PLATFORMS  = ['rhel6', 'rhel7', 'rhel7-dev', 'centos7', 'centos7-dev', 'fedora21']
 
 def common
   ENV['VAGRANT_SNIPPETS'] ||= ''
