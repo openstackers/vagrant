@@ -1,0 +1,43 @@
+$LOAD_PATH << ENV['VAGRANT_LIB']
+
+require 'helpers'
+
+@network1 = '192.168.144'
+@network2 = '192.168.145'
+@network3 = '192.168.146'
+
+@hosts=Hosts.new('beaker.tst')
+@hosts.add('test1', [ "#{@network1}.11", "#{@network2}.11", "#{@network3}.11" ])
+
+Vagrant.configure('2') do |config|
+  config.vm.define 'test1' do |vm|
+    host = 'test1'
+    vm.vm.box = 'centos7-dev'
+    vm.vm.provider :libvirt do |domain|
+      domain.memory = 2048
+    end
+
+    vm.vm.synced_folder '.', '/vagrant', type: "rsync"
+
+    @hosts.get(host).each do |ip|
+      vm.vm.network :private_network, :ip => ip
+    end
+
+    vm.vm.hostname = @hosts.fqdn(host)
+
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'pre.sh'
+      s.args = [ @hosts.to_s ]
+    end
+
+    vm.vm.provision "shell", path: common + 'beaker-deps.sh'
+
+    vm.vm.provision "shell", path: common + 'beaker-ssh.sh', privileged: false
+
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'beaker.sh'
+      s.args = [ 'keystone', '59/218059/29 ', 'centos7' ]
+      s.privileged = false
+    end
+  end
+end
