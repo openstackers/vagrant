@@ -31,14 +31,9 @@ Vagrant.configure('2') do |config|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version, "#{flea}" ]
     end
-    vm.vm.provision 'shell', path: common + 'repos/delorean.sh'
     vm.vm.provision 'shell' do |s|
       s.path = common + 'opm.sh'
       s.args = [ opm, opm_branch ]
-    end
-    vm.vm.provision 'shell' do |s|
-      s.path = common + 'git_src.sh'
-      s.args = [ 'openstacklib', 'https://github.com/stackforge/puppet-openstacklib.git', 'master', '/usr/share/openstack-puppet/modules' ]
     end
     vm.vm.provision 'shell' do |s|
       s.path = common + 'git_src.sh'
