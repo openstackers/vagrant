@@ -2,14 +2,15 @@ $LOAD_PATH << ENV['VAGRANT_LIB']
 
 require 'helpers'
 
-@network1 = '192.168.100'
-@network2 = '192.168.101'
-@network3 = '192.168.102'
-@network4 = '192.168.103'
+@ipv4_net1 = '192.168.100'
+@ipv4_net2 = '192.168.101'
+@ipv4_net3 = '192.168.102'
+@ipv4_net4 = '192.168.103'
+@ipv4_default_gw = '192.168.121.1'
 
 @hosts=Hosts.new('playstack.tst')
-@hosts.add('control1', [ "#{@network1}.11", "#{@network2}.11", "#{@network3}.11", "#{@network4}.11" ])
-@hosts.add('compute1', [ "#{@network1}.12", "#{@network2}.12", "#{@network3}.12", "#{@network4}.12" ])
+@hosts.add('control1', ip: [ "#{@ipv4_net1}.11", "#{@ipv4_net2}.11", "#{@ipv4_net3}.11", "#{@ipv4_net4}.11" ])
+@hosts.add('compute1', ip: [ "#{@ipv4_net1}.12", "#{@ipv4_net2}.12", "#{@ipv4_net3}.12", "#{@ipv4_net4}.12" ])
 
 Vagrant.configure('2') do |config|
   config.vm.define 'control1' do |vm|
@@ -21,14 +22,17 @@ Vagrant.configure('2') do |config|
       domain.volume_cache = 'none'
     end
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
+
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
+
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version, "#{flea}" ]
@@ -62,14 +66,17 @@ Vagrant.configure('2') do |config|
       domain.volume_cache = 'none'
     end
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
+
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
+
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version, "#{flea}" ]

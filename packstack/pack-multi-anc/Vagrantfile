@@ -2,14 +2,15 @@ $LOAD_PATH << ENV['VAGRANT_LIB']
 
 require 'helpers'
 
-@network1 = '192.168.54'
-@network2 = '192.168.55'
-@network3 = '192.168.56'
+@ipv4_net1 = '192.168.54'
+@ipv4_net2 = '192.168.55'
+@ipv4_net3 = '192.168.56'
+@ipv4_default_gw = '192.168.121.1'
 
 @hosts=Hosts.new('packstack.tst')
-@hosts.add('controller1', [ "#{@network1}.11", "#{@network2}.11", "#{@network3}.11" ])
-@hosts.add('networker1',  [ "#{@network1}.12", "#{@network2}.12", "#{@network3}.12" ])
-@hosts.add('compute1',    [ "#{@network1}.13", "#{@network2}.13", "#{@network3}.13" ])
+@hosts.add('controller1', ip: [ "#{@ipv4_net1}.11", "#{@ipv4_net2}.11", "#{@ipv4_net3}.11" ])
+@hosts.add('networker1', ip: [ "#{@ipv4_net1}.12", "#{@ipv4_net2}.12", "#{@ipv4_net3}.12" ])
+@hosts.add('compute1', ip: [ "#{@ipv4_net1}.13", "#{@ipv4_net2}.13", "#{@ipv4_net3}.13" ])
 
 Vagrant.configure('2') do |config|
   config.vm.define 'controller1' do |vm|
@@ -19,13 +20,15 @@ Vagrant.configure('2') do |config|
       domain.memory = 4096
     end
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
+
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
 
     vm.vm.provision 'shell' do |s|
@@ -50,13 +53,15 @@ Vagrant.configure('2') do |config|
     end
 
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
+
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
 
     vm.vm.provision 'shell' do |s|
@@ -77,13 +82,15 @@ Vagrant.configure('2') do |config|
     end
 
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
+
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
 
     vm.vm.provision 'shell' do |s|

@@ -2,25 +2,24 @@ $LOAD_PATH << ENV['VAGRANT_LIB']
 
 require 'helpers'
 
-@ipv4_net1 = '192.168.10'
-@ipv4_net2 = '192.168.11'
-@ipv4_net3 = '192.168.12'
+@ipv4_net1 = '192.168.160'
+@ipv4_net2 = '192.168.161'
+@ipv4_net3 = '192.168.162'
 @ipv4_default_gw = '192.168.121.1'
 
-@hosts=Hosts.new('devstack.tst')
-
-@hosts.add('aio', ip: [ "#{@ipv4_net1}.10", "#{@ipv4_net2}.10", "#{@ipv4_net3}.10" ])
+@hosts=Hosts.new('xyz.tst')
+@hosts.add('ospd1', ip: [ "#{@ipv4_net1}.10", "#{@ipv4_net2}.10", "#{@ipv4_net3}.10" ], ipv6: ["#{@ipv6_net1}::4"])
 
 Vagrant.configure('2') do |config|
-  config.vm.define 'aio' do |vm|
-    host = 'aio'
+  config.vm.define 'one' do |vm|
+    host = 'ospd1'
     vm.vm.box = platform
     vm.vm.provider :libvirt do |domain|
       domain.memory = 6144
-      domain.cpus = 2
-      domain.volume_cache = 'none'
     end
-    vm.vm.synced_folder './', '/vagrant', type: "rsync"
+
+    vm.vm.synced_folder '.', '/vagrant', type: "rsync"
+
     @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
@@ -33,8 +32,12 @@ Vagrant.configure('2') do |config|
     end
 
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'devstack.sh'
-      s.args = [ '192.168.10.0/24' ]
+      s.path = common + 'repos/openstack.sh'
+      s.args = [ platform, openstack, openstack_version, "#{flea}" ]
+    end
+
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'director.sh'
     end
   end
 end

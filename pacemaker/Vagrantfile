@@ -1,0 +1,177 @@
+$LOAD_PATH << ENV['VAGRANT_LIB']
+
+require 'helpers'
+
+@ipv4_net1 = '192.168.244'
+@ipv4_net2 = '192.168.245'
+@ipv4_net3 = '192.168.246'
+@ipv6_net1 = '2000:aabb:ccdd:a'
+@ipv4_default_gw = '192.168.121.1'
+
+@hosts=Hosts.new('pcs.tst')
+@hosts.add('one', ipv6: ["#{@ipv6_net1}::2"])
+@hosts.add('two', ipv6: ["#{@ipv6_net1}::3"])
+@hosts.add('three', ipv6: ["#{@ipv6_net1}::4"])
+# @hosts.add('three', ip: [ "#{@ipv4_net1}.13", "#{@ipv4_net2}.13", "#{@ipv4_net3}.13" ], ipv6: ["#{@ipv6_net1}::4"])
+
+Vagrant.configure('2') do |config|
+  config.vm.define 'one' do |vm|
+    host = 'one'
+    vm.vm.box = platform
+    vm.vm.provider :libvirt do |domain|
+      domain.memory = 1024
+    end
+
+    vm.vm.synced_folder '.', '/vagrant', type: "rsync"
+
+    @hosts.get(host).ip.each do |ip|
+      vm.vm.network :private_network, :ip => ip
+    end
+
+    vm.vm.hostname = @hosts.fqdn(host)
+
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s, "#{@ipv6_net1}::1" ]
+    end
+
+    @hosts.get(host).ipv6.each do |ipv6|
+      vm.vm.provision 'shell' do |s|
+        s.path = common + 'network-ipv6-ifcfg.sh'
+        s.args = [ 'eth0', ipv6 ]
+      end
+    end
+
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'repos/openstack.sh'
+      s.args = [ platform, openstack, openstack_version, "#{flea}" ]
+    end
+
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'puppet_no_master.sh'
+      s.args = [ '/usr/share/openstack-puppet/modules' ]
+    end
+
+    vm.vm.provision 'shell', :inline => 'yum install -y openstack-puppet-modules'
+
+    vm.vm.provision 'shell', :path => common + 'iptables.sh'
+
+=begin
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'pacemaker.sh'
+      s.args = [ 'false' ]
+  #    s.args = [ 'true', 'cluster_test1', 'one.pcs.tst two.pcs.tst three.pcs.tst', '--ipv6' ]
+    end
+=end
+
+    vm.vm.provision 'shell', :path => common + 'apache.sh'
+
+    vm.vm.provision 'shell', :inline => 'puppet apply /vagrant/pace.pp'
+  end
+
+  config.vm.define 'two' do |vm|
+    host = 'two'
+    vm.vm.box = platform
+    vm.vm.provider :libvirt do |domain|
+      domain.memory = 1024
+    end
+
+    vm.vm.synced_folder '.', '/vagrant', type: "rsync"
+
+    @hosts.get(host).ip.each do |ip|
+      vm.vm.network :private_network, :ip => ip
+    end
+
+    vm.vm.hostname = @hosts.fqdn(host)
+
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s, "#{@ipv6_net1}::1" ]
+    end
+
+    @hosts.get(host).ipv6.each do |ipv6|
+      vm.vm.provision 'shell' do |s|
+        s.path = common + 'network-ipv6-ifcfg.sh'
+        s.args = [ 'eth0', ipv6 ]
+      end
+    end
+
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'repos/openstack.sh'
+      s.args = [ platform, openstack, openstack_version, "#{flea}" ]
+    end
+
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'puppet_no_master.sh'
+      s.args = [ '/usr/share/openstack-puppet/modules' ]
+    end
+
+    vm.vm.provision 'shell', :inline => 'yum install -y openstack-puppet-modules'
+
+    vm.vm.provision 'shell', :path => common + 'iptables.sh'
+
+=begin
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'pacemaker.sh'
+      s.args = [ 'false' ]
+    end
+=end
+
+    vm.vm.provision 'shell', :path => common + 'apache.sh'
+
+    vm.vm.provision 'shell', :inline => 'puppet apply /vagrant/pace.pp'
+  end
+
+  config.vm.define 'three' do |vm|
+    host = 'three'
+    vm.vm.box = platform
+    vm.vm.provider :libvirt do |domain|
+      domain.memory = 1024
+    end
+
+    vm.vm.synced_folder '.', '/vagrant', type: "rsync"
+
+    @hosts.get(host).ip.each do |ip|
+      vm.vm.network :private_network, :ip => ip
+    end
+
+    vm.vm.hostname = @hosts.fqdn(host)
+
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s, "#{@ipv6_net1}::1" ]
+    end
+
+    @hosts.get(host).ipv6.each do |ipv6|
+      vm.vm.provision 'shell' do |s|
+        s.path = common + 'network-ipv6-ifcfg.sh'
+        s.args = [ 'eth0', ipv6 ]
+      end
+    end
+
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'repos/openstack.sh'
+      s.args = [ platform, openstack, openstack_version, "#{flea}" ]
+    end
+
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'puppet_no_master.sh'
+      s.args = [ '/usr/share/openstack-puppet/modules' ]
+    end
+
+    vm.vm.provision 'shell', :inline => 'yum install -y openstack-puppet-modules'
+
+    vm.vm.provision 'shell', :path => common + 'iptables.sh'
+
+=begin
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'pacemaker.sh'
+      s.args = [ 'false' ]
+    end
+=end
+
+    vm.vm.provision 'shell', :path => common + 'apache.sh'
+
+    vm.vm.provision 'shell', :inline => 'puppet apply /vagrant/pace.pp'
+  end
+end

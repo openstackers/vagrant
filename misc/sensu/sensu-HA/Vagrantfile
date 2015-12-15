@@ -2,16 +2,17 @@ $LOAD_PATH << ENV['VAGRANT_LIB']
 
 require 'helpers'
 
-@network1 = '192.168.17'
-@network2 = '192.168.18'
-@network3 = '192.168.19'
+@ipv4_net1 = '192.168.17'
+@ipv4_net2 = '192.168.18'
+@ipv4_net3 = '192.168.19'
+@ipv4_default_gw = '192.168.121.1'
 
 @hosts=Hosts.new('os.tst')
-@hosts.add('lb1',  [ "#{@network1}.10", "#{@network2}.10", "#{@network3}.10" ])
-@hosts.add('mon1', [ "#{@network1}.11", "#{@network2}.11", "#{@network3}.11" ])
-@hosts.add('mon2', [ "#{@network1}.12", "#{@network2}.12", "#{@network3}.12" ])
-@hosts.add('mon3', [ "#{@network1}.13", "#{@network2}.13", "#{@network3}.13" ])
-@hosts.add('cli1', [ "#{@network1}.21", "#{@network2}.21", "#{@network3}.21" ])
+@hosts.add('lb1',  ip: [ "#{@ipv4_net1}.10", "#{@ipv4_net2}.10", "#{@ipv4_net3}.10" ])
+@hosts.add('mon1', ip: [ "#{@ipv4_net1}.11", "#{@ipv4_net2}.11", "#{@ipv4_net3}.11" ])
+@hosts.add('mon2', ip: [ "#{@ipv4_net1}.12", "#{@ipv4_net2}.12", "#{@ipv4_net3}.12" ])
+@hosts.add('mon3', ip: [ "#{@ipv4_net1}.13", "#{@ipv4_net2}.13", "#{@ipv4_net3}.13" ])
+@hosts.add('cli1', ip: [ "#{@ipv4_net1}.21", "#{@ipv4_net2}.21", "#{@ipv4_net3}.21" ])
 
 Vagrant.configure('2') do |config|
   config.vm.define 'lb1' do |vm|
@@ -23,14 +24,16 @@ Vagrant.configure('2') do |config|
       domain.volume_cache = 'none'
     end
     vm.vm.synced_folder './', '/vagrant', type: "rsync"
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
+
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version, flea.to_s ]
@@ -51,14 +54,16 @@ Vagrant.configure('2') do |config|
       domain.volume_cache = 'none'
     end
     vm.vm.synced_folder './', '/vagrant', type: "rsync"
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
+
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version, flea.to_s ]
@@ -99,14 +104,16 @@ Vagrant.configure('2') do |config|
       domain.volume_cache = 'none'
     end
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
+
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version, flea.to_s ]
@@ -147,14 +154,16 @@ Vagrant.configure('2') do |config|
       domain.volume_cache = 'none'
     end
     vm.vm.synced_folder './', '/vagrant', type: "rsync"
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
+
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version, flea.to_s ]
@@ -195,14 +204,16 @@ Vagrant.configure('2') do |config|
       domain.volume_cache = 'none'
     end
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
+
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version, flea.to_s ]

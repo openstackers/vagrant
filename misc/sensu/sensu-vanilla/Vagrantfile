@@ -1,14 +1,15 @@
 $LOAD_PATH << ENV['VAGRANT_LIB']
 
-require 'helpers
+require 'helpers'
 
-@network1 = '192.168.21'
-@network2 = '192.168.21'
-@network3 = '192.168.21'
+@ipv4_net1 = '192.168.21'
+@ipv4_net2 = '192.168.22'
+@ipv4_net3 = '192.168.23'
+@ipv4_default_gw = '192.168.121.1'
 
 @hosts=Hosts.new('os.tst')
-@hosts.add('mon1', [ "#{@network1}.11", "#{@network2}.11", "#{@network3}.11" ])
-@hosts.add('clt1', [ "#{@network1}.12", "#{@network2}.12", "#{@network3}.12" ])
+@hosts.add('mon1', ip: [ "#{@ipv4_net1}.11", "#{@ipv4_net2}.11", "#{@ipv4_net3}.11" ])
+@hosts.add('clt1', ip: [ "#{@ipv4_net1}.12", "#{@ipv4_net2}.12", "#{@ipv4_net3}.12" ])
 
 Vagrant.configure('2') do |config|
   config.vm.define 'mon1' do |vm|
@@ -20,14 +21,16 @@ Vagrant.configure('2') do |config|
       domain.volume_cache = 'none'
     end
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
+
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version, flea.to_s ]
@@ -65,14 +68,16 @@ Vagrant.configure('2') do |config|
       domain.volume_cache = 'none'
     end
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
+
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version, flea.to_s ]

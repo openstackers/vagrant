@@ -2,12 +2,13 @@ $LOAD_PATH << ENV['VAGRANT_LIB']
 
 require 'helpers'
 
-@network1 = '192.168.64'
-@network2 = '192.168.65'
-@network3 = '192.168.66'
+@ipv4_net1 = '192.168.64'
+@ipv4_net2 = '192.168.65'
+@ipv4_net3 = '192.168.66'
+@ipv4_default_gw = '192.168.121.1'
 
 @hosts=Hosts.new('puppet.tst')
-@hosts.add('aio', [ "#{@network1}.11", "#{@network2}.11", "#{@network3}.11" ])
+@hosts.add('aio', ip: [ "#{@ipv4_net1}.11", "#{@ipv4_net2}.11", "#{@ipv4_net3}.11" ])
 
 Vagrant.configure('2') do |config|
   config.vm.define 'aio' do |vm|
@@ -19,14 +20,17 @@ Vagrant.configure('2') do |config|
       domain.volume_cache = 'none'
     end
     vm.vm.synced_folder './', '/vagrant', type: "rsync"
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
+
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
+
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version, "#{flea}" ]
@@ -38,6 +42,9 @@ Vagrant.configure('2') do |config|
     vm.vm.provision 'shell' do |s|
       s.path = common + 'git_src.sh'
       s.args = [ 'keystone', 'https://github.com/stackforge/puppet-keystone.git', 'master', '/usr/share/openstack-puppet/modules' ]
+    end
+    vm.vm.provision 'shell' do |s|
+      s.path = common + 'selinux_off.sh'
     end
     vm.vm.provision 'shell' do |s|
       s.path = common + 'puppet_no_master.sh'

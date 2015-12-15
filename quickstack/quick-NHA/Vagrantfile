@@ -2,12 +2,13 @@ $LOAD_PATH << ENV['VAGRANT_LIB']
 
 require 'helpers'
 
-@network1 = '192.168.85'
-@network2 = '192.168.86'
-@network3 = '192.168.87'
+@ipv4_net1 = '192.168.85'
+@ipv4_net2 = '192.168.86'
+@ipv4_net3 = '192.168.87'
+@ipv4_default_gw = '192.168.121.1'
 
 @hosts=Hosts.new('os.tst')
-@hosts.add('nha', [ "#{@network1}.11", "#{@network2}.11", "#{@network3}.11" ])
+@hosts.add('nha', ip: [ "#{@ipv4_net1}.11", "#{@ipv4_net2}.11", "#{@ipv4_net3}.11" ])
 
 Vagrant.configure('2') do |config|
   config.vm.define 'nha' do |vm|
@@ -19,14 +20,17 @@ Vagrant.configure('2') do |config|
       domain.volume_cache = 'none'
     end
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
+
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
+
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version, flea.to_s ]
@@ -38,7 +42,7 @@ Vagrant.configure('2') do |config|
     vm.vm.provision 'shell', path: common + 'puppet_no_master.sh'
     vm.vm.provision 'shell' do |s|
       s.path = './hiera_custom.sh'
-      s.args = [ @network1, @network2, @network3 ]
+      s.args = [ @ipv4_net1, @ipv4_net2, @ipv4_net3 ]
     end
   end
 end

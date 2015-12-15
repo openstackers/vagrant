@@ -2,15 +2,16 @@ $LOAD_PATH << ENV['VAGRANT_LIB']
 
 require 'helpers'
 
-@network1 = '192.168.81'
-@network2 = '192.168.82'
-@network3 = '192.168.83'
+@ipv4_net1 = '192.168.81'
+@ipv4_net2 = '192.168.82'
+@ipv4_net3 = '192.168.83'
+@ipv4_default_gw = '192.168.121.1'
 
 @hosts=Hosts.new('os.tst')
-@hosts.add('controller1', ["#{@network1}.11", "#{@network2}.11", "#{@network3}.11"])
-@hosts.add('controller2', ["#{@network1}.12", "#{@network2}.12", "#{@network3}.12"])
-@hosts.add('controller3', ["#{@network1}.13", "#{@network2}.13", "#{@network3}.13"])
-@hosts.add('compute1',    ["#{@network1}.30", "#{@network2}.30", "#{@network3}.30"])
+@hosts.add('controller1', ip: ["#{@ipv4_net1}.11", "#{@ipv4_net2}.11", "#{@ipv4_net3}.11"])
+@hosts.add('controller2', ip: ["#{@ipv4_net1}.12", "#{@ipv4_net2}.12", "#{@ipv4_net3}.12"])
+@hosts.add('controller3', ip: ["#{@ipv4_net1}.13", "#{@ipv4_net2}.13", "#{@ipv4_net3}.13"])
+@hosts.add('compute1',    ip: ["#{@ipv4_net1}.30", "#{@ipv4_net2}.30", "#{@ipv4_net3}.30"])
 
 if ansible?
   File.open('./inventory','w+') do |file|
@@ -28,14 +29,17 @@ Vagrant.configure('2') do |config|
       domain.volume_cache = 'none'
     end
 
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
+
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
+
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version ]
@@ -51,7 +55,7 @@ Vagrant.configure('2') do |config|
     # vm.vm.provision 'shell', path: common + 'certificates.sh'
     vm.vm.provision 'shell' do |s|
       s.path = './hiera_custom.sh'
-      s.args = [ @network1, @network2, @network3 ]
+      s.args = [ @ipv4_net1, @ipv4_net2, @ipv4_net3 ]
     end
     vm.vm.provision 'shell', path: common + 'puppet_no_master.sh'
   end
@@ -64,14 +68,17 @@ Vagrant.configure('2') do |config|
       domain.cpus = 2
       domain.volume_cache = 'none'
     end
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
+
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
+
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version ]
@@ -86,11 +93,11 @@ Vagrant.configure('2') do |config|
     end
     vm.vm.provision 'shell' do |s|
       s.path = './hiera_custom.sh'
-      s.args = [ @network1, @network2, @network3 ]
+      s.args = [ @ipv4_net1, @ipv4_net2, @ipv4_net3 ]
     end
     vm.vm.provision 'shell' do |s|
       s.path = './hiera_custom.sh'
-      s.args = [ @network1, @network2, @network3 ]
+      s.args = [ @ipv4_net1, @ipv4_net2, @ipv4_net3 ]
     end
     vm.vm.provision 'shell', path: common + 'puppet_no_master.sh'
   end
@@ -103,14 +110,17 @@ Vagrant.configure('2') do |config|
       domain.cpus = 2
       domain.volume_cache = 'none'
     end
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
+
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
+
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version ]
@@ -125,11 +135,11 @@ Vagrant.configure('2') do |config|
     end
     vm.vm.provision 'shell' do |s|
       s.path = './hiera_custom.sh'
-      s.args = [ @network1, @network2, @network3 ]
+      s.args = [ @ipv4_net1, @ipv4_net2, @ipv4_net3 ]
     end
     vm.vm.provision 'shell' do |s|
       s.path = './hiera_custom.sh'
-      s.args = [ @network1, @network2, @network3 ]
+      s.args = [ @ipv4_net1, @ipv4_net2, @ipv4_net3 ]
     end
     vm.vm.provision 'shell', path: common + 'puppet_no_master.sh'
   end
@@ -142,14 +152,17 @@ Vagrant.configure('2') do |config|
       domain.cpus = 2
       domain.volume_cache = 'none'
     end
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
+
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
+
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version ]
@@ -164,7 +177,7 @@ Vagrant.configure('2') do |config|
     end
     vm.vm.provision 'shell' do |s|
       s.path = './hiera_custom.sh'
-      s.args = [ @network1, @network2, @network3 ]
+      s.args = [ @ipv4_net1, @ipv4_net2, @ipv4_net3 ]
     end
     vm.vm.provision 'shell', path: common + 'puppet_no_master.sh'
   end

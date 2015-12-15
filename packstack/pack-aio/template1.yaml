@@ -1,0 +1,18 @@
+heat_template_version: 2015-04-30
+
+description: Simple template to deploy a single compute instance
+
+parameters:
+  net:
+    description: name of network used to launch instance.
+    type: string
+
+resources:
+  my_instance:
+    type: OS::Nova::Server
+    properties:
+      key_name: my_key
+      image: cirros
+      flavor: m1.small
+      networks:
+        - network: { get_param: net }

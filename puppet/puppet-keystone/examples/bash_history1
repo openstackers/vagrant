@@ -1,0 +1,1000 @@
+puppet resource keystone_service 
+puppet resource keystone_service keystone ensure=absent
+puppet resource keystone_service 
+puppet resource keystone_service keystone ensure=absent
+puppet resource keystone_service 
+puppet resource keystone_service keystone2 ensure=present
+puppet resource keystone_service 
+puppet resource keystone_service Keystone2 ensure=present
+puppet resource keystone_service 
+puppet resource keystone_service --trace
+puppet resource keystone_service 
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v3/  --os-identity-api-version 3
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v3/  --os-identity-api-version 2
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+/usr/bin/openstack service  delete 974bc56eba76468c8cc651ffd17ab5fc --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+/usr/bin/openstack service  delete 974bc56eba76468c8cc651ffd17ab5fc --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+/usr/bin/openstack service  delete d8f86ff8c0674d11b824842e3d5d2718 --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+/usr/bin/openstack service  delete --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+/usr/bin/openstack service  delete f26520e4b7e54a1c8254344a1495b01c --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+puppet resource keystone_service Keystone2 ensure=present
+puppet resource keystone_service Keystone2 ensure=present description=blah
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2 --long
+puppet resource keystone_service 
+/usr/bin/openstack service  delete  --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+/usr/bin/openstack service  delete c1a5731f7eba42caa4fe2bf56adeb63a --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+/usr/bin/openstack service  delete d3ce7368baba418191147dd70ec1db3e --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+puppet resource keystone_service Keystone2 ensure=present type=indentity description=blah
+puppet resource keystone_service 
+puppet resource keystone_service Keystone2 ensure=present type=indentity description=blah2
+puppet resource keystone_service 
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2 --long
+puppet resource keystone_service --debug
+cd ../openstacklib/
+git checkout master
+git branch -v
+git fetch https://review.openstack.org/stackforge/puppet-openstacklib refs/changes/07/180407/4 && git checkout FETCH_HEAD
+cd ../keystone/
+puppet resource keystone_service 
+puppet resource keystone_service keystone2 ensure=absent
+puppet resource keystone_service 
+puppet resource keystone_service keystone2 ensure=absent
+puppet resource keystone_service 
+puppet resource keystone_service keystone2 ensure=absent
+puppet resource keystone_service keystone2 ensure=absent --trace
+puppet resource keystone_service keystone2 ensure=absent --debug
+puppet resource keystone_service 
+puppet resource keystone_service keystone2 ensure=absent
+puppet resource keystone_service --de
+puppet resource keystone_service keystone2 ensure=absent --debug
+puppet resource keystone_service keystone2
+puppet resource keystone_service keystone2 --debug
+/usr/bin/openstack service list --quiet --format csv --long'
+/usr/bin/openstack service list --quiet --format csv --long
+export OS_TOKEN=testing
+history | grep url
+export OS_URL=http://127.0.0.1:35357/v2.0/
+/usr/bin/openstack service list --quiet --format csv --long
+puppet resource keystone_service keystone2 --debug
+/usr/bin/openstack service list --quiet --format csv --long
+puppet resource keystone_service keystone2 
+/usr/bin/openstack service  delete 887ba2884f0d4c1fafe3abc0dba8bc6e --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+puppet resource keystone_service keystone2 
+puppet resource keystone_service keystone2 --debug
+puppet resource keystone_service keystone2 
+puppet resource keystone_service keystone2 --debug
+puppet resource keystone_service keystone2 
+irb
+puppet resource keystone_service keystone2 
+reboot
+puppet resource keystone_service keystone2 
+puppet resource keystone_service help
+puppet resource help keystone_service 
+puppet help resource keystone_service 
+puppet help resource 
+puppet resource keystone_service keystone2 
+gem list
+puppet resource keystone_service keystone2 ensure=absent 
+export OS_URL=http://127.0.0.1:35357/v2.0/
+export OS_TOKEN=testing
+puppet resource keystone_service keystone2 ensure=absent 
+/usr/bin/openstack service list --quiet --format csv --long
+puppet resource keystone_service keystone2 ensure=absent 
+puppet resource keystone_service keystone2 
+puppet resource keystone_service keystone2 ensure=absent 
+gem install pry --no-ri --no-rdoc
+puppet resource keystone_service keystone2 ensure=absent 
+puppet resource keystone_service keystone2 
+puppet resource keystone_service Keystone2 ensure=present type=indentity description=blah2
+puppet resource keystone_service keystone2 
+/usr/bin/openstack service list --quiet --format csv --long
+puppet resource keystone_service keystone2 
+echo $OS_URL
+/usr/bin/openstack service list --quiet --format csv --long
+puppet resource keystone_service
+puppet resource keystone_service keystone2
+puppet resource keystone_service Keystone2
+puppet resource keystone_service Keystone2 ensure=present
+puppet resource keystone_service Keystone2
+puppet resource keystone_service
+puppet resource keystone_service Keystone2 ensure=present type=indentity description=blah2
+puppet resource keystone_service 
+puppet resource keystone_service Keystone2 ensure=present type=indentity description=blah3
+/usr/bin/openstack service list --quiet --format csv --long
+puppet resource keystone_service Keystone2 ensure=present type=indentity description=blah3
+/usr/bin/openstack service list --quiet --format csv --long
+puppet resource keystone_service
+puppet resource keystone_service Keystone2 ensure=present type=indentity description=blah3
+/usr/bin/openstack service list --quiet --format csv --long
+puppet resource keystone_service Keystone2 ensure=present type=indentity description=blah3
+/usr/bin/openstack service list --quiet --format csv --long
+/usr/bin/openstack service set 75de7026b4d54c7ab8e80515f8c3fd44 --quiet --format csv --long
+openstack help service set
+openstack --version
+puppet resource keystone_service Keystone2 ensure=present type=indentity description=blah3
+export OS_IDENTITY_API_VERSION=2
+/usr/bin/openstack service set 75de7026b4d54c7ab8e80515f8c3fd44 --property desccription blah3
+export OS_IDENTITY_API_VERSION=2.0
+/usr/bin/openstack service set 75de7026b4d54c7ab8e80515f8c3fd44 --property desccription blah3
+export OS_IDENTITY_API_VERSION=3
+/usr/bin/openstack service set 75de7026b4d54c7ab8e80515f8c3fd44 --property desccription blah3
+/usr/bin/openstack service set 75de7026b4d54c7ab8e80515f8c3fd44 desccription blah3
+/usr/bin/openstack service set 75de7026b4d54c7ab8e80515f8c3fd44 --desccription blah3
+/usr/bin/openstack service set 75de7026b4d54c7ab8e80515f8c3fd44 --description blah3
+/usr/bin/openstack service list --quiet --format csv --long
+puppet resource keystone_service
+/usr/bin/openstack service list --quiet --format csv --long
+less /etc/keystone/keystone.conf 
+vi /etc/keystone/keystone.conf 
+puppet resource keystone_service
+vi /etc/keystone/keystone.conf 
+puppet resource keystone_service
+vi /etc/keystone/keystone.conf 
+export OS_TOKEN=testing
+export OS_URL=http://127.0.0.1:35357/v2.0/
+puppet resource keystone_service
+vi /etc/keystone/keystone.conf 
+puppet resource keystone_service
+/usr/bin/openstack service list --quiet --format csv --long
+export OS_URL=http://127.0.0.1:35357/v2.0/
+export OS_TOKEN=testing
+/usr/bin/openstack service list --quiet --format csv --long
+puppet resource keystone_service
+puppet resource keystone_endpoint
+history | grep keystone_endpoint
+puppet resource keystone_endpoint RegionOne/Keystone ensure=present admin_url=https://localhost internal_url=https://localhost public_url=https://localhost
+puppet resource keystone_service
+puppet resource keystone_endpoint RegionOne/Keystone2 ensure=present admin_url=https://localhost internal_url=https://localhost public_url=https://localhost
+puppet resource keystone_service
+puppet resource keystone_endpoint
+puppet resource keystone_endpoint RegionOne/Keystone2 ensure=absent
+puppet resource keystone_endpoint RegionOne/Keystone2 
+puppet resource keystone_endpoint
+puppet resource keystone_endpoint RegionOne/Keystone2 ensure=absent
+puppet resource keystone_endpoint
+puppet resource keystone_endpoint RegionOne/Keystone2 ensure=absent
+export OS_TOKEN=testing
+export OS_URL=http://127.0.0.1:35357/v2.0/
+/usr/bin/openstack service list --quiet --format csv --long
+/usr/bin/openstack endpoint list --quiet --format csv --long
+/usr/bin/openstack endpoint Keystone2 
+/usr/bin/openstack endpoint delete Keystone2 
+/usr/bin/openstack service help delete 887ba2884f0d4c1fafe3abc0dba8bc6e --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+openstack service help delete
+openstack help service
+openstack help service --os-identity-api-version 2
+openstack help service delete --os-identity-api-version 2
+/usr/bin/openstack endpoint delete Keystone2 --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+/usr/bin/openstack endpoint list --quiet --format csv --long
+/usr/bin/openstack endpoint list --quiet --format csv 
+/usr/bin/openstack endpoint list 
+/usr/bin/openstack endpoint list --quiet --format csv --long
+/usr/bin/openstack endpoint delete Keystone2 --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+/usr/bin/openstack endpoint delete ca472acbecd1471b910aec06cc6c1a7b --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2
+puppet resource keystone_endpoint RegionOne/Keystone2 ensure=present admin_url=https://localhost internal_url=https://localhost public_url=https://localhost
+puppet resource keystone_endpoint
+puppet resource keystone_endpoint RegionOne/Keystone2 ensure=absent
+puppet resource keystone_endpoint
+puppet resource keystone_endpoint RegionOne/Keystone2 ensure=present admin_url=https://localhost internal_url=https://localhost public_url=https://localhost
+puppet resource keystone_endpoint
+puppet resource keystone_endpoint RegionOne/Keystone2 ensure=absent
+puppet resource keystone_endpoint
+puppet resource keystone_endpoint RegionOne/Keystone2 ensure=absent
+puppet resource keystone_endpoint
+puppet resource keystone_service Keystone2 ensure=absent
+puppet resource keystone_service 
+/usr/bin/openstack endpoint list --quiet --format csv --long
+/usr/bin/openstack service list --quiet --format csv --long
+/usr/bin/openstack service list --quiet --format csv 
+history | grep present
+ puppet resource keystone_service Keystone2 ensure=present type=indentity description=blah2
+puppet resource keystone_endpoint RegionOne/Keystone ensure=present admin_url=https://localhost internal_url=https://localhost public_url=https://localhost
+puppet resource keystone_endpoint RegionOne/Keystone2 ensure=present admin_url=https://localhost internal_url=https://localhost public_url=https://localhost
+puppet resource keystone_tenant admin ensure=present description='Mine'
+puppet resource keystone_tenant
+puppet resource keystone_tenant admin ensure=absent
+puppet resource keystone_tenant
+puppet resource keystone_tenant admin ensure=absent
+puppet resource keystone_tenant
+puppet resource keystone_tenant admin ensure=present description='Mine'
+puppet resource keystone_tenant
+puppet resource keystone_user
+puppet resource keystone_user admin ensure=present name=admin password=admin email=admin@foo.com
+puppet resource keystone_user admin ensure=present name=admin password=admin email=admin@foo.com tenant=admin
+puppet resource keystone_user admin ensure=present name=admin password=admin email=admin@foo.com tenant=admin --debug
+vi /etc/keystone/keystone.conf 
+history | grep url
+export OS-AUTH-URL=http://127.0.0.1:5000/v2.0
+export OS_AUTH_URL=http://127.0.0.1:5000/v2.0
+puppet resource keystone_user admin ensure=present name=admin password=admin email=admin@foo.com tenant=admin --debug
+puppet resource keystone_endpoint
+puppet resource keystone_endpoint RegionOne/Keystone2 ensure=absent
+puppet resource keystone_service Keystone2 ensure=absent
+history | grep service | grep present
+puppet resource keystone_service keystone ensure=present type=indentity description="keystone identity"
+history | grep endpoint  | grep present
+puppet resource keystone_endpoint RegionOne/Keystone2 ensure=present admin_url=https://localhost:35357/v2.0/ internal_url=https://localhost:5000 public_url=https://localhost:5000
+puppet resource keystone_endpoint RegionOne/keystone ensure=present admin_url=https://localhost:35357/v2.0/ internal_url=https://localhost:5000 public_url=https://localhost:5000
+/usr/bin/openstack endpoint list --quiet --format csv 
+history | grep export
+export OS_TOKEN=testing
+export OS_URL=http://127.0.0.1:35357/v2.0/
+/usr/bin/openstack endpoint list --quiet --format csv 
+/usr/bin/openstack endpoint list --quiet --format csv --long
+puppet resource keystone_user
+puppet resource keystone_tenant
+puppet resource keystone_tenant admin ensure=absent
+puppet resource keystone_user admin ensure=absent
+puppet resource keystone_tenant admin ensure=present 
+puppet resource keystone_user admin ensure=present name=admin password=admin email=admin@foo.com tenant=admin 
+puppet resource keystone_tenant
+puppet resource keystone_user
+export OS_AUTH_URL=http://127.0.0.1:5000
+puppet resource keystone_user
+puppet resource keystone_user test ensure=present password=test email=admin@foo.com tenant=admin 
+puppet resource keystone_user
+/usr/bin/openstack tenant list --quiet --format csv --long
+/usr/bin/openstack project list --quiet --format csv --long
+/usr/bin/openstack project list --quiet --format csv --long --os-identity-version-id=2
+history | grep identity
+/usr/bin/openstack project list --quiet --format csv --long --os-identity-api-version=2
+/usr/bin/openstack help -os-identity-api-version=2
+/usr/bin/openstack help --os-identity-api-version=2
+/usr/bin/openstack help --os-identity-api-version=3
+openstack
+/usr/bin/openstack project list --quiet --format csv --long --os-identity-api-version=2
+/usr/bin/openstack project user --quiet --format csv --long --os-identity-api-version=2
+/usr/bin/openstack  user list --quiet --format csv --long --os-identity-api-version=2
+/usr/bin/openstack  user list --quiet --format csv --long 
+/usr/bin/openstack  user list --quiet --format csv --long --os-identity-api-version=3
+/usr/bin/openstack  user list --quiet --format csv --long --os-identity-api-version=2
+/usr/bin/openstack endpoint list --quiet --format csv 
+/usr/bin/openstack endpoint list --quiet --format csv --long
+puppet resource keystone_endpoint RegionOne/keystone ensure=absent
+ip 
+hostname
+puppet resource keystone_endpoint RegionOne/keystone ensure=present admin_url=http://aio.puppet.tst:35357/v2.0/ internal_url=http://aio.puppet.tst:5000/v2.0/ public_url=http://aio.puppet.tst:5000/v2.0/
+puppet resource keystone_user foo ensure=present password=test email=foo@foo.com tenant=admin 
+less /var/log/keystone/keystone.log
+sestatus 
+setenforce 0
+iptables -L
+puppet resource keystone_user foo ensure=present password=test email=foo@foo.com tenant=admin 
+puppet resource keystone_user foo ensure=present password=test email=foo@foo.com tenant=admin --trace
+netstat -taupen
+ping aio.puppet.tst
+/usr/bin/openstack role list --long
+/usr/bin/openstack role list --project admin--long
+/usr/bin/openstack role list --project admin --long
+/usr/bin/openstack role list admin --project admin --long
+/usr/bin/openstack user role list admin --project admin --long
+/usr/bin/openstack user role list --project admin --long
+/usr/bin/openstack user role list --project admin admin
+puppet resource keystone_user_role
+puppet resource keystone_user_role --trace
+puppet resource keystone_user_role
+puppet resource keystone_user_role --trace
+puppet resource keystone_user_role
+/usr/bin/openstack user role list --project admin admin
+/usr/bin/openstack user role list --project admin admin --format csv --long
+/usr/bin/openstack user role list --project admin admin --format csv
+puppet resource keystone_tenant demo ensure=present 
+puppet resource keystone_user foo ensure=present password=test email=foo@foo.com tenant=foo 
+puppet resource keystone_user
+/usr/bin/openstack user role list --project foo --format csv
+/usr/bin/openstack user role list --project foo foo --format csv
+/usr/bin/openstack user role list --project foo admin --format csv
+/usr/bin/openstack user role list --project admin foo --format csv
+puppet resource keystone_user fuu ensure=present password=test email=foo@foo.com tenant=foo 
+/usr/bin/openstack project list --format csv
+puppet resource keystone_user fuu ensure=present password=test email=foo@foo.com tenant=demo 
+/usr/bin/openstack endpoint list --format csv
+/usr/bin/openstack endpoint list --format csv --long
+vi /etc/keystone/keystone.conf 
+cat /etc/keystone/keystone.conf | grep endpoint
+vi /etc/keystone/keystone.conf 
+openstack
+/usr/bin/openstack token issue
+/usr/bin/openstack help token issue
+/usr/bin/openstack help token issue -f value
+/usr/bin/openstack help token issue -f table
+/usr/bin/openstack token issue
+/usr/bin/openstack help token issue
+/usr/bin/openstack token issue
+/usr/bin/openstack token issue --os-username admin --os-project-name admin
+/usr/bin/openstack token issue --os-username admin --os-project-name admin --os-auth-url http://aio.puppet.tst:5000
+/usr/bin/openstack token issue --os-username admin --os-project-name admin --os-auth-url http://aio.puppet.tst:5000 --os-password admin
+puppet resource keystone_user fii ensure=present password=test email=foo@fii.com tenant=demo 
+export OS_AUTH_URL=http://aio.puppet.tst:5000
+puppet resource keystone_user fii ensure=present password=test email=foo@fii.com tenant=demo 
+export
+export | grep OS
+/usr/bin/openstack token issue --os-username fii --os-project-name demo --os-auth-url http://aio.puppet.tst:5000 --os-password test
+puppet resource keystone_user fii ensure=present password=test email=foo@fii.com tenant=demo 
+/usr/bin/openstack token issue  --os-username fii --os-project-name demo --os-auth-url http://aio.puppet.tst:5000 --os-password test
+vi /usr/share/openstack-puppet/modules/openstacklib/lib/puppet/provider/openstack.rb 
+/usr/bin/openstack token issue  --os-username fii --os-project-name demo --os-auth-url http://aio.puppet.tst:5000 --os-password test
+puppet resource keystone_user fii ensure=present password=test email=foo@fii.com tenant=demo 
+vi /usr/share/openstack-puppet/modules/openstacklib/lib/puppet/provider/openstack.rb 
+puppet resource keystone_user
+puppet resource keystone_role
+puppet resource keystone_user_role
+puppet resource keystone_user bla ensure=present password=bii email=bla@ex.com tenant=demo 
+puppet resource keystone_user bla ensure=present password=buu email=bla@ex.com tenant=demo 
+puppet resource keystone_user bla ensure=present password=buu email=bla@ex.com tenant=demo  --trace
+/usr/bin/openstack token issue --os-username admin --os-project-name admin --os-auth-url http://aio.puppet.tst:5000 --os-password admin
+/usr/bin/openstack token issue --os-username admin --os-project-name admin --os-auth-url http://aio.puppet.tst:5000 --os-password admin --long
+/usr/bin/openstack token issue --os-username admin --os-project-name admin --os-auth-url http://aio.puppet.tst:5000 --os-password admin --format csv
+/usr/bin/openstack token issue --os-username admin --os-project-name admin --os-auth-url http://aio.puppet.tst:5000 --os-password admin --format value
+/usr/bin/openstack token issue --os-username admin --os-project-name admin --os-auth-url http://aio.puppet.tst:5000 --os-password admin --format value --quiet
+puppet resource keystone_user uuu ensure=present password=buu email=uuu@bex.com tenant=demo  --trace
+usr/bin/openstack token issue --format value --os-username uuu --os-project-name demo --os-auth-url http://aio.puppet.tst:5000 --os-password buu
+/usr/bin/openstack token issue --format value --os-username uuu --os-project-name demo --os-auth-url http://aio.puppet.tst:5000 --os-password buu
+puppet resource keystone_user uuu ensure=present password=buu email=uuu@bex.com tenant=demo  --trace
+puppet resource keystone_user aaa ensure=present password=buu email=aaa@bex.com tenant=demo  
+/usr/bin/openstack iserlist --format csv --long
+/usr/bin/openstack user list --format csv --long
+/usr/bin/openstack user list --format csv--long
+/usr/bin/openstack user list --format csv --long
+history | grep list
+-os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2 --long
+ usr/bin/openstack user list  -os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2 --long
+/usr/bin/openstack user list  -os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2 --long
+/usr/bin/openstack user list  --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2 --long
+puppet resource keystone_user_role
+ps -eaf
+vi /vagrant/site.pp 
+puppet apply /vagrant/site.pp 
+vi /tmp/foo
+chmod +x /tmp/foo 
+/tmp/foo 
+/tmp/foo blah
+puppet apply /vagrant/site.pp 
+vi /vagrant/site.pp 
+vi /usr/share/openstack-puppet/modules/keystone/lib/puppet/provider/keystone_user/openstack.rb 
+less /etc/keystone/keystone.conf 
+irb
+which puppte
+which puppet
+ls -la /usr/bin/puppet 
+rpm -qi puppet
+rpm -qil puppet
+irb
+grep OS /etc/keystone/keystone.conf 
+vi /etc/keystone/keystone.conf 
+irb
+vi /etc/keystone/keystone.conf 
+cd /usr/share/openstack-puppet/modules/openstacklib/
+git status
+puppet resource keystone_service keystone ensure=present type=indentity description="keystone identity"
+cd /usr/share/openstack-puppet/modules/openstacklib/
+ls
+ls lib/
+mkdir lib/puppetx/openstack
+mkdir -p lib/puppetx/openstack
+cd /usr/share/openstack-puppet/modules/openstacklib/
+puppet resource keystone_service keystone ensure=present type=indentity description="keystone identity"
+ls -la lib/puppetx/openstack
+irb
+vi lib/puppetx/openstack/auth.rb
+irb
+vi lib/puppetx/openstack/auth.rb
+irb
+vi lib/puppetx/openstack/auth.rb
+irb
+vi lib/puppetx/openstack/auth.rb
+puppet resource keystone_service keystone ensure=present type=indentity description="keystone identity"
+irb
+puppet resource keystone_service keystone ensure=present type=indentity description="keystone identity"
+vi lib/puppetx/openstack/auth.rb 
+puppet resource keystone_service keystone ensure=present type=indentity description="keystone identity"
+puppet resource keystone_service
+puppet resource keystone_service keystone
+puppet resource keystone_service keystone ensure=present type=indentity description="keystone identity"
+puppet resource keystone_service
+n
+puppet resource keystone_service
+n
+puppet resource keystone_service
+history | grep export
+export OS_TOKEN=testing
+ export OS_URL=http://127.0.0.1:35357/v2.0/
+puppet resource keystone_service
+puppet resource keystone_service keystone
+puppet resource keystone_service keystone1 ensure=present type=indentity description="keystone identity1"
+puppet resource keystone_service keystone1 ensure=present type=indentity description="keystone-identity1"
+history | grep export
+  508  export OS_IDENTITY_API_VERSION=2
+export OS_IDENTITY_API_VERSION=2
+puppet resource keystone_service keystone1 ensure=present type=indentity description="keystone-identity1"
+export OS_IDENTITY_API_VERSION=2.0
+puppet resource keystone_service keystone1 ensure=present type=indentity description="keystone-identity1"
+history | grep export
+puppet resource keystone_service keystone1 ensure=present type=indentity description="keystone-identity1"
+puppet resource keystone_service
+history | grep export
+vi openrc
+pwd
+mv openrc ~/
+puppet resource keystone_service
+cat openrc 
+puppet resource keystone_service
+vi openrc
+cat openrc 
+puppet resource keystone_service
+puppet resource keystone_service keystone1 ensure=present type=indentity description="keystone-identity1"
+openstack --help
+openstack help
+openstack help service 
+openstack help service create
+openstack help service create  --os-identity-api-version=3
+openstack help service create  --os-identity-api-version=2.0
+openstack help endpoint create  --os-identity-api-version=2.0
+openstack help endpoint create  --os-identity-api-version=3
+puppet resource keystone_service keystone1 ensure=present type=indentity description="keystone-identity1"
+puppet resource keystone_service 
+/usr/bin/openstack service list
+/usr/bin/openstack service list --long
+history | grep list
+ /usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v3/  --os-identity-api-version 2.0
+ /usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2.0
+ /usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2.0 --long
+history 
+openstack help endpoint create  --os-identity-api-version=2.0
+openstack help endpoint create  --os-identity-api-version=2
+openstack help endpoint create
+openstack help service create 
+ /usr/bin/openstack service  detele --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2.0 --long
+ /usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2.0 --long
+ /usr/bin/openstack service delete de9dd01ff10c4a80a2ef090f4aa181e4 --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2.0 --long
+ /usr/bin/openstack service delete de9dd01ff10c4a80a2ef090f4aa181e4 --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2.0 
+puppet resource keystone_service 
+puppet resource keystone_service keystone1 ensure=present type=indentity description="keystone-identity1"
+puppet resource keystone_service 
+puppet resource keystone_service keystone1 ensure=present type=indentity description="keystone-identity1"
+puppet resource keystone_service 
+puppet resource keystone_service keystone1 ensure=absent
+puppet resource keystone_service 
+puppet resource keystone_service keystone1 ensure=present type=indentity description="keystone-identity1"
+puppet resource keystone_service keystone1 ensure=absent
+puppet resource keystone_service keystone2 ensure=present description="keystone-identity1"
+puppet resource keystone_endpoint
+history | grep endpoint | grep ensure
+puppet resource keystone_endpoint RegionTwoe/keystone ensure=present admin_url=http://aio.puppet.tst:35357/v2.0/ internal_url=http://aio.puppet.tst:5000/v2.0/ public_url=http://aio.puppet.tst:5000/v2.0/
+history | grep endpoint | grep ensure
+puppet resource keystone_endpoint
+puppet resource keystone_endpoint RegionTwoe/keystone ensure=absent
+puppet resource keystone_endpoint
+puppet resource keystone_endpoint RegionTwoe/keystone ensure=present admin_url=http://aio.puppet.tst:35357/v2.0/ internal_url=http://aio.puppet.tst:5000/v2.0/ public_url=http://aio.puppet.tst:5000/v2.0/
+puppet resource keystone_endpoint RegionTwoe/keystone ensure=present admin_url=http://aio.puppet.tst:35357/v2.0/ internal_url=http://aio.puppet.tst:5000/v2.0/ public_url=http://aio.puppet.tst:5001/v2.0/
+puppet resource keystone_endpoint
+puppet resource keystone_service
+puppet resource keystone_service keystone description='Keystone identity!'
+ /usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2.0 --long
+ /usr/bin/openstack service set  --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2.0 06dff7d5c4b44bca9a59e8f9bc1108ed --description='foo' 
+openstack help service
+openstack help service set
+openstack help endpoint set
+openstack help service set -os-identity-api-version 3
+openstack help service set --os-identity-api-version 3
+openstack help endpoint set --os-identity-api-version 3
+openstack help endpoint set --os-identity-api-version 2
+puppet resource keystone_service keystone description='Keystone identity!'
+puppet resource keystone_service keystone description='Keystone identity!' type=identity
+puppet resource keystone_service keystone 
+history | grep tenant
+/usr/bin/openstack tenant list --quiet --format csv --long
+/usr/bin/openstack tenant list --long
+/usr/bin/openstack project list --long
+ /usr/bin/openstack tenant list --os-token testing --os-url http://127.0.0.1:35357/v2.0/
+ /usr/bin/openstack project list --os-token testing --os-url http://127.0.0.1:35357/v2.0/
+ puppet resource keystone_tenant tenant1 ensure=present description='tenant1'
+ puppet resource keystone_tenant 
+ puppet resource keystone_tenant tenant1 ensure=absent
+ puppet resource keystone_tenant 
+ puppet resource keystone_tenant tenant1 ensure=present description='tenant1'
+ puppet resource keystone_tenant tenant1 description="tenant one"
+ puppet resource keystone_tenant tenant1 ensure=present description='tenant1'
+ puppet resource keystone_tenant 
+ puppet resource keystone_tenant tenant1 description="tenant one"
+openstack help project set --os-identity-api-version 2
+openstack help project create  --os-identity-api-version 2
+ puppet resource keystone_tenant tenant1 description="tenant one"
+openstack help project create  --os-identity-api-version 2
+ puppet resource keystone_tenant tenant1 description="tenant one"
+ puppet resource keystone_tenant 
+openstack help role  --os-identity-api-version 2
+ /usr/bin/openstack role  list --os-token testing --os-url http://127.0.0.1:35357/v2.0/
+openstack help role  create  --os-identity-api-version 2 
+ puppet resource keystone_role foo ensure=present
+/usr/bin/openstack role list --quiet --format csv
+/usr/bin/openstack role list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/
+ puppet resource keystone_role 
+/usr/bin/openstack role list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/
+ puppet resource keystone_role 
+cat openrc
+ puppet resource keystone_user
+ puppet resource keystone_role
+ puppet resource keystone_role 
+ puppet resource keystone_role foo ensure=absent
+ puppet resource keystone_role 
+ puppet resource keystone_user
+ puppet resource keystone_user_role
+ puppet resource keystone_user uuu ensure=absent
+ puppet resource keystone_user
+ puppet resource keystone_user uuu ensure=present email=uuu@u.u 
+ puppet resource keystone_user
+ puppet resource keystone_user_role
+/usr/bin/openstack service list --long
+history | grep service list
+ puppet resource keystone_user_role
+/usr/bin/openstack service list --long
+history | grep service list
+history | grep service -e list
+ puppet resource keystone_user_role
+/usr/bin/openstack service list --long
+history | grep service list
+history | grep service -e list
+history | grep -e service -e list
+/usr/bin/openstack role list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/
+/usr/bin/openstack role list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/ --long
+/usr/bin/openstack service list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/ --long
+/usr/bin/openstack service create --format shell foo --description foo --name foo --os-token testing --os-url http://127.0.0.1:35357/v2.0/ --long
+/usr/bin/openstack service create --format shell --description foo --name foo --os-token testing --os-url http://127.0.0.1:35357/v2.0/ foo
+/usr/bin/openstack service list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/ --long
+openstack help user   --os-identity-api-version 2 
+/usr/bin/openstack role list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/ --long
+/usr/bin/openstack role list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/ 
+openstack help role list 
+/usr/bin/openstack role list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --project admin
+/usr/bin/openstack role list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/ --user admin --project admin
+rm -rf /usr/share/openstack-puppet/modules/openstacklib/lib/puppetx/openstack/auth.rb 
+ puppet resource keystone_user_role
+rm -rf /usr/share/openstack-puppet/modules/openstacklib/lib/puppetx/openstack/auth.rb 
+ puppet resource keystone_user_role
+rm -rf /usr/share/openstack-puppet/modules/openstacklib/lib/puppetx/openstack/auth.rb 
+ puppet resource keystone_user_role
+ puppet resource keystone_user
+ puppet resource keystone_service
+ puppet resource keystone_user bob ensure=true email=bob@foo.com
+ puppet resource keystone_user bob ensure=present email=bob@foo.com password=foo
+history | grep user | grep password
+cat openrc 
+export OS_AUTH_URL=http://127.0.0.1:5000
+ puppet resource keystone_user bob ensure=present email=bob@foo.com password=foo
+history | grep user | grep password
+ /usr/bin/openstack token issue --os-username admin --os-project-name admin --os-auth-url http://aio.puppet.tst:5000 --os-password admin
+export OS_AUTH_URL=http://aio.puppet.tst:5000
+export OS_USERNAME=admin
+export OS_PASSWORD=admin
+export OS_PROJECT_NAME=admin
+ /usr/bin/openstack token issue
+ /usr/bin/openstack token issue --format value
+ puppet resource keystone_user admin ensure=present email=bob@foo.com password=admin tenant=admin
+ puppet resource keystone_tenant
+ puppet resource keystone_user admin ensure=present password=admin tenant=admin
+c
+ puppet resource keystone_user admin ensure=present password=admin tenant=admin
+ /usr/bin/openstack token issue --format value
+ puppet resource keystone_user admin ensure=present password=admin tenant=admin
+ /usr/bin/openstack token issue --format value
+export OS_IDENTITY_API_VERSION=2.0
+ /usr/bin/openstack token issue --format value
+history | grep token
+/usr/bin/openstack token issue --os-username admin --os-project-name admin --os-auth-url http://aio.puppet.tst:5000 --os-password admin
+ puppet resource keystone_user admin ensure=present password=admin tenant=admin
+OS_AUTH_URL=http://aio.puppet.tst:5000 puppet resource keystone_user admin ensure=present password=admin tenant=admin
+ puppet resource keystone_user admin ensure=present password=admin tenant=admin
+OS_AUTH_URL=http://aio.puppet.tst:5000 puppet resource keystone_user admin ensure=present password=admin tenant=admin
+mv openrc foo
+OS_AUTH_URL=http://aio.puppet.tst:5000 puppet resource keystone_user admin ensure=present password=admin tenant=admin
+mv foo openrc
+OS_AUTH_URL=http://aio.puppet.tst:5000 puppet resource keystone_user admin ensure=present password=admin tenant=admin
+export OS_AUTH_URL=http://aio.puppet.tst:5000 puppet resource keystone_user admin ensure=present password=admin tenant=admin
+export OS_AUTH_URL=http://aio.puppet.tst:5000
+puppet resource keystone_user admin ensure=present password=admin tenant=admin
+echo $OS_TOKEN
+puppet resource keystone_user admin ensure=present password=admin tenant=admin
+env | grep OS
+. ./openrc 
+puppet resource keystone_user admin ensure=present password=admin tenant=admin
+/usr/bin/openstack token issue --os-username admin --os-project-name admin --os-auth-url http://aio.puppet.tst:5000 --os-password admin
+puppet resource keystone_user admin ensure=present password=admin tenant=admin
+OS_AUTH_URL=http://aio.puppet.tst:5000 puppet resource keystone_user admin ensure=present password=admin tenant=admin
+env | grep OS
+/usr/bin/openstack token issue --format value --os-username admin --os-project-name admin --os-auth-url http://aio.puppet.tst:5000 --os-password admin
+OS_AUTH_URL=http://aio.puppet.tst:5000 puppet resource keystone_user admin ensure=present password=admin tenant=admin
+reboot
+. ./openrc 
+OS_AUTH_URL=http://aio.puppet.tst:5000 puppet resource keystone_user admin ensure=present password=admin tenant=admin
+/usr/bin/openstack token issue --format value --os-username admin --os-project-name admin --os-auth-url http://aio.puppet.tst:5000 --os-password admin
+unset OS_TOKEN /usr/bin/openstack token issue --format value --os-username admin --os-project-name admin --os-auth-url http://aio.puppet.tst:5000 --os-password admin
+unset OS_TOKEN; /usr/bin/openstack token issue --format value --os-username admin --os-project-name admin --os-auth-url http://aio.puppet.tst:5000 --os-password admin
+/usr/bin/openstack token issue --format value --os-username admin --os-project-name admin --os-auth-url http://aio.puppet.tst:5000 --os-password admin
+. ./openrc 
+/usr/bin/openstack token issue --format value --os-username admin --os-project-name admin --os-auth-url http://aio.puppet.tst:5000 --os-password admin
+OS_AUTH_URL=http://aio.puppet.tst:5000 puppet resource keystone_user admin ensure=present password=admin tenant=admin
+openstack token issue --format value
+OS_AUTH_URL=http://aio.puppet.tst:5000 openstack token issue --format value
+OS_AUTH_URL=http://aio.puppet.tst:5000 OS_PASSWORD=admin OS_USERNAME=admin OS_PROJECT_NAME=admin openstack token issue --format value
+OS_IDENTITY_API_VERSION=2.0 OS_AUTH_URL=http://aio.puppet.tst:5000 OS_PASSWORD=admin OS_USERNAME=admin OS_PROJECT_NAME=admin openstack token issue --format value
+OS_IDENTITY_API_VERSION=3 OS_AUTH_URL=http://aio.puppet.tst:5000 OS_PASSWORD=admin OS_USERNAME=admin OS_PROJECT_NAME=admin openstack token issue --format value
+OS_IDENTITY_API_VERSION=v3 OS_AUTH_URL=http://aio.puppet.tst:5000 OS_PASSWORD=admin OS_USERNAME=admin OS_PROJECT_NAME=admin openstack token issue --format value
+OS_IDENTITY_API_VERSION=v2.0 OS_AUTH_URL=http://aio.puppet.tst:5000 OS_PASSWORD=admin OS_USERNAME=admin OS_PROJECT_NAME=admin openstack token issue --format value
+OS_IDENTITY_API_VERSION=2.0 OS_AUTH_URL=http://aio.puppet.tst:5000 OS_PASSWORD=admin OS_USERNAME=admin OS_PROJECT_NAME=admin openstack token issue --format value
+OS_IDENTITY_API_VERSION=3.0 OS_AUTH_URL=http://aio.puppet.tst:5000 OS_PASSWORD=admin OS_USERNAME=admin OS_PROJECT_NAME=admin openstack token issue --format value
+cat openrc 
+OS_AUTH_URL=http://aio.puppet.tst:5000 puppet resource keystone_user admin ensure=present password=admin tenant=admin
+OS_IDENTITY_API_VERSION=3 OS_AUTH_URL=http://aio.puppet.tst:5000 OS_PASSWORD=admin OS_USERNAME=admin OS_PROJECT_NAME=admin openstack token issue --format value --quiet
+OS_IDENTITY_API_VERSION=2.0 OS_AUTH_URL=http://aio.puppet.tst:5000 OS_PASSWORD=admin OS_USERNAME=admin OS_PROJECT_NAME=admin openstack token issue --format value --quiet
+OS_IDENTITY_API_VERSION= OS_AUTH_URL=http://aio.puppet.tst:5000 OS_PASSWORD=admin OS_USERNAME=admin OS_PROJECT_NAME=admin openstack token issue --format value --quiet
+. ./openrc 
+openstack role show --format shell
+openstack role show --format shell _member_
+openstack role add _member_ --project foo --user foo
+openstack tenant list
+openstack project  list
+openstack role add _member_ --project demo --user foo
+openstack help role
+less /etc/keystone/keystone.conf 
+ puppet resource keystone_user 
+cd /usr/share/openstack-puppet/modules/openstacklib/
+git fetch https://review.openstack.org/stackforge/puppet-openstacklib refs/changes/07/180407/20 && git checkout FETCH_HEAD
+git checkout master
+git checkout -- lib/puppet/provider/openstack.rb 
+git checkout -- spec/
+git checkout master
+git fetch https://review.openstack.org/stackforge/puppet-openstacklib refs/changes/07/180407/20 && git checkout FETCH_HEAD
+cd ../keystone/
+git fetch https://review.openstack.org/stackforge/puppet-keystone refs/changes/99/181299/6 && git checkout FETCH_HEAD
+git checkout -- .
+git fetch https://review.openstack.org/stackforge/puppet-keystone refs/changes/99/181299/6 && git checkout FETCH_HEAD
+cd -
+cd 
+ls
+ puppet resource keystone_user 
+ puppet resource keystone_service
+ puppet resource keystone_service ensure=absent foo
+ puppet resource keystone_service foo ensure=absent
+vi /usr/share/openstack-puppet/modules/openstacklib/lib/puppet/provider/openstack.rb 
+ puppet resource keystone_service
+vi /usr/share/openstack-puppet/modules/openstacklib/lib/puppet/provider/openstack.rb 
+ puppet resource keystone_service
+. ./openrc 
+ puppet resource keystone_service
+puppet resource keystone_user foo ensure=present password=test email=foo@foo.com tenant=foo 
+cat .//openrc 
+export OS_AUTH_URL=http://aio.puppet.tst:5000
+puppet resource keystone_user foo ensure=present password=test email=foo@foo.com tenant=foo 
+export OS_AUTH_URL=http://aio.puppet.tst:5000
+puppet resource keystone_user foo ensure=present password=test email=foo@foo.com tenant=foo 
+vi /usr/share/openstack-puppet/modules/keystone/lib/puppet/provider/keystone.rb 
+vi /usr/share/openstack-puppet/modules/keystone/lib/puppet/provider/keystone_user/openstack.rb 
+. ./openrc 
+puppet resource keystone_user foo ensure=present password=test email=foo@foo.com tenant=foo 
+vi /usr/share/openstack-puppet/modules/keystone/lib/puppet/provider/keystone_user/openstack.rb 
+puppet resource keystone_user foo ensure=present password=test email=foo@foo.com tenant=foo 
+cat openrc 
+vi /usr/share/openstack-puppet/modules/keystone/lib/puppet/provider/keystone_user/openstack.rb 
+puppet resource keystone_user foo ensure=present password=test email=foo@foo.com tenant=foo 
+export OS_AUTH_URL=http://aio.puppet.tst:5000
+. ./openrc 
+puppet resource keystone_user foo ensure=present password=test email=foo@foo.com tenant=foo 
+puppet resource keystone_user
+puppet resource keystone_user foo
+puppet resource keystone_service 
+history | grep keystone_service 
+puppet resource keystone_service Keystone2 ensure=present type=indentity description=blah
+puppet resource keystone_user foo ensure=present password=test email=foo@foo.com tenant=foo 
+puppet resource keystone_user foo ensure=present password=test email=foo@foo.com tenant=foo  --debug
+puppet resource keystone_user admin ensure=present password=admin tenant=admin
+. ./openrc 
+vi /usr/share/openstack-puppet/modules/openstacklib/lib/puppet/provider/openstack.rb 
+puppet resource keystone_service 
+puppet resource keystone_user admin ensure=present password=admin tenant=admin
+export OS_AUTH_URL=http://aio.puppet.tst:5000
+puppet resource keystone_user admin ensure=present password=admin tenant=admin
+history | grep identity
+history | grep -e list -e identity
+history | grep identity | grep list
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2.0 --long
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2.0
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 3 --long
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 3 
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v3/  --os-identity-api-version 3 --long
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357  --os-identity-api-version 3 --long
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/  --os-identity-api-version 3 --long
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v3  --os-identity-api-version 3 --long
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0  --os-identity-api-version 2 --long
+/usr/bin/openstack service  list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0  --os-identity-api-version 2.0 --long
+/usr/bin/openstack help service  list --os-identity-api-version 2.0 
+/usr/bin/openstack help service  list --os-identity-api-version 2
+/usr/bin/openstack help service  list --os-identity-api-version 3
+clar
+clear
+/usr/bin/openstack help service  list --os-identity-api-version 3
+/usr/bin/openstack help service  list --os-identity-api-version 2.0
+clear; /usr/bin/openstack help service  create --os-identity-api-version 2.0
+ /usr/bin/openstack help service  create --os-identity-api-version 3
+clear; /usr/bin/openstack help service  create --os-identity-api-version 2
+clear; /usr/bin/openstack help service  create --os-identity-api-version 4
+clear; /usr/bin/openstack help service  create --os-identity-api-version 3
+puppet resource keystone_service 
+cd /usr/share/openstack-puppet/modules/keystone/
+git status
+git checkout -- lib/puppet/provider/
+git status
+git checkout -- spec/
+git status
+git checkout master
+git fetch https://review.openstack.org/stackforge/puppet-keystone refs/changes/99/181299/11 && git checkout FETCH_HEAD
+cd ../openstacklib/
+git status
+git checkout -- lib/
+git checkout master
+git fetch https://review.openstack.org/stackforge/puppet-openstacklib refs/changes/07/180407/27 && git checkout FETCH_HEAD
+cd
+ls -la
+mv openrc openrc.
+ls
+puppet resource keystone_service 
+vi /usr/share/openstack-puppet/modules/keystone/lib/puppet/provider/keystone.rb 
+cd /usr/share/openstack-puppet/modules/keystone/
+git status
+git diff
+git checkout -- lib/
+git status
+git fetch https://review.openstack.org/stackforge/puppet-keystone refs/changes/99/181299/14 && git checkout FETCH_HEAD
+puppet resource keystone_service 
+openstack --dlfjlajfla ffalj
+openstack service list --dlfjlajfla ffalj
+puppet resource keystone_role
+vi lib/puppet/provider/keystone_role/openstack.rb 
+puppet resource keystone_role
+vi lib/puppet/provider/keystone_role/openstack.rb 
+puppet resource keystone_role
+vi lib/puppet/provider/keystone_role/openstack.rb 
+puppet resource keystone_role
+puppet resource keystone_tenant
+puppet resource keystone_tenant boo ensure=present
+puppet resource keystone_tenant boo ensure=present description=ducon
+puppet resource keystone_tenant boo ensure=present enable=false
+puppet resource keystone_tenant boo ensure=present enabled=false
+puppet resource keystone_tenant
+puppet resource keystone_tenant tenant1 ensure=
+puppet resource keystone_tenant 
+puppet resource keystone_tenant boo ensure=empty
+puppet resource keystone_tenant boo ensure=absent
+puppet resource keystone_tenant demo ensure=absent
+puppet resource keystone_tenant admin ensure=absent
+puppet resource keystone_tenant 
+puppet resource keystone_tenant admin ensure=present
+puppet resource keystone_tenant admin ensure=absent
+puppet resource keystone_tenant admin ensure=present --debug
+puppet resource keystone_tenant demo ensure=present --debug
+puppet resource keystone_service demo ensure=present --debug
+puppet resource keystone_service demo ensure=present type=test --debug
+puppet resource keystone_role
+vi lib/puppet/provider/keystone_role/openstack.rb 
+puppet resource keystone_role
+puppet resource keystone_role bla ensure=present
+puppet resource keystone_role bla ensure=absent
+puppet resource keystone_role bla ensure=present --debug
+puppet resource keystone_tenant bla ensure=present --debug
+vi lib/puppet/provider/keystone_tenant/openstack.rb 
+puppet resource keystone_tenant dos ensure=present --debug
+vi lib/puppet/provider/keystone_tenant/openstack.rb 
+puppet resource keystone_tenant bla ensure=debug --debug
+puppet resource keystone_tenant bla ensure=absent --debug
+vi lib/puppet/provider/keystone_tenant/openstack.rb 
+puppet resource keystone_tenant bla ensure=absent --debug
+puppet resource keystone_tenant bla ensure=present --debug
+vi lib/puppet/provider/keystone_tenant/openstack.rb 
+puppet resource keystone_tenant bla ensure=absent --debug
+vi lib/puppet/provider/keystone_tenant/openstack.rb 
+puppet resource keystone_tenant bla ensure=present --debug
+vi lib/puppet/provider/keystone_tenant/openstack.rb 
+puppet resource keystone_tenant bla ensure=absent --debug
+puppet resource keystone_tenant bla ensure=present --debug
+vi lib/puppet/provider/keystone_tenant/openstack.rb 
+puppet resource keystone_tenant bla ensure=absent --debug
+vi lib/puppet/provider/keystone_tenant/openstack.rb 
+puppet resource keystone_tenant bla ensure=absent --debug
+puppet resource keystone_tenant bla ensure=present --debug
+vi lib/puppet/provider/keystone_tenant/openstack.rb 
+puppet resource keystone_tenant bla ensure=absent --debug
+vi lib/puppet/provider/keystone_tenant/openstack.rb 
+puppet resource keystone_tenant bla ensure=absent --debug
+puppet resource keystone_tenant bla ensure=present --debug
+puppet resource keystone_role bla ensure=present
+puppet resource keystone_role bla ensure=present --debug
+puppet resource keystone_role bla ensure=absent --debug
+puppet resource keystone_role bla ensure=present --debug
+puppet resource keystone_user_role
+puppet resource keystone_user_role --debug
+puppet resource keystone_user
+puppet resource keystone_user admin tenant=admin
+puppet resource keystone_user
+history | grep openstack | grep list
+ /usr/bin/openstack user list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357  --os-identity-api-version 3 --long
+ /usr/bin/openstack user list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357  --os-identity-api-version --long
+ /usr/bin/openstack user list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357  --long
+ /usr/bin/openstack user list  --os-token testing --os-url http://127.0.0.1:35357  --long
+ /usr/bin/openstack user list  --os-token testing --os-url http://127.0.0.1:35357  
+ /usr/bin/openstack user list --os-token testing --os-url http://127.0.0.1:35357/v2.0  
+ /usr/bin/openstack user list --os-token testing --os-url http://127.0.0.1:35357/v2.0  --long
+vi lib/puppet/provider/keystone_tenant/openstack.rb 
+vi lib/puppet/provider/keystone_user/openstack.rb 
+puppet resource keystone_user
+ /usr/bin/openstack user list --os-token testing --os-url http://127.0.0.1:35357/v2.0  --long --os-identity-api-version 2.
+ /usr/bin/openstack user list --os-token testing --os-url http://127.0.0.1:35357/v2.0  --long --os-identity-api-version 2.0
+cd /usr/share/openstack-puppet/modules/keystone/
+git checkout master
+git checkout -- .
+git checkout master
+git branch -v
+git fetch https://review.openstack.org/stackforge/puppet-keystone refs/changes/99/181299/17 && git checkout FETCH_HEAD
+cd ../openstacklib/
+git checkout master
+git fetch https://review.openstack.org/stackforge/puppet-openstacklib refs/changes/07/180407/30 && git checkout FETCH_HEAD
+cd ..
+ls -la
+rm -rf keystone/
+git clone git@github.com:stackforge/puppet-keystone.git keystone
+git clone https://github.com:stackforge/puppet-keystone.git keystone
+git clone https://github.com/stackforge/puppet-keystone.git keystone
+cd keystone/; git fetch https://review.openstack.org/stackforge/puppet-keystone refs/changes/99/181299/17 && git checkout FETCH_HEAD
+ls
+cd
+puppet resource keystone_user
+puppet resource keystone_service
+puppet resource keystone_endpoint
+history | grep openstack | grep list
+history | grep openstack | grep list | grep endpoint
+ /usr/bin/openstack endpoint list --quiet --format csv --long
+/usr/bin/openstack endpoint list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v3/  --os-identity-api-version 3
+/usr/bin/openstack endpoint list --quiet --format csv --os-token testing --os-url http://127.0.0.1:35357/v2.0/  --os-identity-api-version 2.0
+puppet resource keystone_endpoint keystone ensure=present
+puppet resource keystone_endpoint RegionOne/keystone ensure=present
+puppet resource keystone_endpoint RegionOne/keystone ensure=present adminurl=1.1.1.1
+puppet resource keystone_endpoint RegionOne/keystone ensure=present admin_url=1.1.1.1
+puppet resource keystone_endpoint RegionOne/keystone ensure=present admin_url=1.1.1.1 internal_url=2.2.2.2 public_url=3.3.3.3
+puppet resource keystone_endpoint RegionOne/keystone ensure=present admin_url=1.1.1.1 internal_url=2.2.2.2 public_url=3.3.3.3 --debug
+puppet resource keystone_endpoint RegionOne/keystone ensure=present admin_url=1.1.1.1 internal_url=2.2.2.2 public_url=3.3.3.3 --debug --trae
+puppet resource keystone_endpoint RegionOne/keystone ensure=present admin_url=1.1.1.1 internal_url=2.2.2.2 public_url=3.3.3.3 --debug --trace
+puppet resource keystone_endpoint RegionOne/keystone ensure=present admin_url=1.1.1.1 internal_url=2.2.2.2 public_url=3.3.3.3 --debug 
+puppet resource keystone_endpoint RegionOne/keystone ensure=present admin_url=1.1.1.1 internal_url=2.2.2.2 public_url=3.3.3.3 
+puppet resource keystone_endpoint RegionOne/keystone
+puppet resource keystone_service
+less /etc/keystone/keystone.conf 
+puppet resource keystone_service identity2 ensure=present
+puppet resource keystone_service identity2 ensure=present type=identity
+puppet resource keystone_service
+puppet resource keystone_service identity2 description=foo
+puppet resource keystone_service identity2 description=foo type=identity
+puppet resource keystone_service
+puppet resource keystone_service identity2 ensure=absent
+puppet resource keystone_service
+puppet resource keystone_endpoint
+puppet resource keystone_tenant
+puppet resource keystone_tenant dos ensure=absent
+puppet resource keystone_tenant
+puppet resource keystone_tenant demo description='demo'
+puppet resource keystone_tenant
+puppet resource keystone_role
+puppet resource keystone_role --debug
+puppet resource keystone_user
+puppet resource keystone_user fii ensure=absent
+history | grep present | grep keystone_user
+puppet resource keystone_user fii ensure=present password=test email=foo@foo.com tenant=foo
+puppet resource keystone_user fii ensure=present password=test email=foo@foo.com tenant=demo
+mv openrc. openrc
+puppet resource keystone_user fii ensure=present password=test email=foo@foo.com tenant=demo
+cat openrc 
+export OS_AUTH_URL=http://aio.puppet.tst:5000
+puppet resource keystone_user fii ensure=present password=test email=foo@foo.com tenant=demo
+OS_IDENTITY_API_VERSION= OS_AUTH_URL=http://aio.puppet.tst:5000 OS_PASSWORD=admin OS_USERNAME=admin OS_PROJECT_NAME=admin openstack token issue --format value --quiet
+OS_IDENTITY_API_VERSION= OS_AUTH_URL=http://aio.puppet.tst:5000 OS_PASSWORD=test OS_USERNAME=demo OS_PROJECT_NAME=demo openstack token issue --format value --quiet
+unset OS_IDENTITY_API_VERSION OS_AUTH_URL=http://aio.puppet.tst:5000 OS_PASSWORD=test OS_USERNAME=demo OS_PROJECT_NAME=demo openstack token issue --format value --quiet
+unset $OS_IDENTITY_API_VERSION OS_AUTH_URL=http://aio.puppet.tst:5000 OS_PASSWORD=test OS_USERNAME=demo OS_PROJECT_NAME=demo openstack token issue --format value --quiet
+unset OS_IDENTITY_API_VERSION; OS_AUTH_URL=http://aio.puppet.tst:5000 OS_PASSWORD=test OS_USERNAME=demo OS_PROJECT_NAME=demo openstack token issue --format value --quiet
+puppet resource keystone_user admin ensure=present password=admin tenant=admin
+less /etc/yum.repos.d/rhel-7-server.repo 
+yum update
+reboot
+yum update
+yum update --ignore python-openstackclient-1.0.3-2.el7.noarch:
+yum help updae
+yum help update
+vi /etc/yum.repos.d/rdo7-epel7.repo 
+yum help update
+yum update
+reboot
+cd /usr/share/openstack-puppet/modules/
+ls -la
+cd ke
+cd keystone/
+ls
+less lib/puppet/provider/keystone_service/openstack.rb 
+cd
+history | grep keystone_service
+  puppet resource keystone_service
+  puppet resource keystone_service identity2 ensure=present type=identity
+ls
+mv openrc .openrc
+  puppet resource keystone_service
+  puppet resource keystone_service --debug
+  puppet resource keystone_service --trace
+  puppet resource keystone_endpoints
+  puppet resource keystone_endpoint
+history |grep keystone_endpoint 
+ puppet resource keystone_endpoint RegionTwo/keystone ensure=present admin_url=1.1.1.1 internal_url=2.2.2.2 public_url=3.3.3.3
+history |grep keystone_endpoint 
+  puppet resource keystone_endpoint
+  puppet resource keystone_endpoint RegionTwo/keystone  admin_url=1.1.1.3
+  puppet resource keystone_endpoint RegionTwo/keystone  admin_url=1.1.1.3 internal_url=2.2.2.2 public_url=3.3.3.3
+  puppet resource keystone_endpoint
+  puppet resource keystone_endpoint RegionTwo/keystone  ensure=absent
+  puppet resource keystone_endpoint
+history |grep user
+ puppet resource keystone_user admin ensure=present password=admin tenant=admin
+ puppet resource keystone_user admin ensure=present password=admin tenant=admin --trace
+ puppet resource keystone_user admin ensure=present password=admin tenant=admin
+less /usr/share/openstack-puppet/modules/keystone/lib/puppet/provider/keystone_user/openstack.rb 
+ puppet resource keystone_user admin ensure=present password=admin tenant=admin
+  puppet resource keystone_endpoint
+ puppet resource keystone_user admin ensure=present password=admin tenant=admin
+ puppet resource keystone_user admin ensure=present password=admin tenant=admin --tenant
+ puppet resource keystone_user admin ensure=present password=admin tenant=admin --trace
+ puppet resource keystone_user admin ensure=present password=admin tenant=admin
+  puppet resource keystone_endpoint RegionTwo/keystone  admin_url=1.1.1.3 internal_url=2.2.2.2 public_url=3.3.3.3
+  puppet resource keystone_endpoint RegionTwo/keystone  
+  puppet resource keystone_endpoint RegionTwo/keystone  ensure=absent
+  puppet resource keystone_endpoint
+man openstack
+openstack --os-identity-api-version 3 --help
+man openstack
+openstack --os-identity-api-version 3 --help
+openstack --os-identity-api-version 3 --help create user
+openstack --os-identity-api-version 3 --help user create
+openstack --os-identity-api-version 3 help user create
+openstack --os-identity-api-version 2.0 help user create
+man openstack
+  puppet resource keystone_endpoint
+  puppet resource keystone_endpoint RegionTwo/keystone  admin_url=1.1.1.3 internal_url=2.2.2.2 public_url=3.3.3.3
+  puppet resource keystone_endpoint
+  puppet resource keystone_endpoint RegionTwo/keystone  ensure=absent
+  puppet resource keystone_endpoint
+man openstack
+  puppet resource keystone_endpoint
+mv .openrc openrc
+  puppet resource keystone_endpoint
+cat openrc 
+  puppet resource keystone_endpoint
+openstack --version
+openstack help role list
+openstack help role list --os_identity_api_version 3
+openstack help role list --os-identity-api-version 3
+openstack help role list --os_identity_api_version 3
+man openstack
+yum update
+less /etc/yum.repos.d/rdo7-epel7.repo 
+history | grep role
+  puppet resource keystone_role 
+  puppet resource keystone_role --trace
+  puppet resource keystone_role 
+  puppet resource keystone_user
+  puppet resource keystone_project
+  puppet resource keystone_tenant
+  puppet resource keystone_user_role
+history | grep _endpoint
+  puppet resource keystone_endpoint RegionTwo/keystone  admin_url=1.1.1.3 internal_url=2.2.2.2 public_url=3.3.3.3
+  puppet resource keystone_endpoint
+  puppet resource keystone_endpoint ensure=absent
+  puppet resource keystone_endpoint RegionTwo/keystone ensure=absent
+  puppet resource keystone_role 
+  puppet resource keystone_role bla ensure=absent

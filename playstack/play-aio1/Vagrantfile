@@ -2,13 +2,14 @@ $LOAD_PATH << ENV['VAGRANT_LIB']
 
 require 'helpers'
 
-@network1 = '192.168.96'
-@network2 = '192.168.97'
-@network3 = '192.168.98'
-@network4 = '192.168.99'
+@ipv4_net1 = '192.168.96'
+@ipv4_net2 = '192.168.97'
+@ipv4_net3 = '192.168.98'
+@ipv4_net4 = '192.168.99'
+@ipv4_default_gw = '192.168.121.1'
 
 @hosts=Hosts.new('playstack.tst')
-@hosts.add('aio', [ "#{@network1}.10", "#{@network2}.10", "#{@network3}.10", "#{@network4}.10" ])
+@hosts.add('aio', ip: [ "#{@ipv4_net1}.10", "#{@ipv4_net2}.10", "#{@ipv4_net3}.10", "#{@ipv4_net4}.10" ])
 
 Vagrant.configure('2') do |config|
   config.vm.define 'aio' do |vm|
@@ -20,14 +21,17 @@ Vagrant.configure('2') do |config|
       domain.volume_cache = 'none'
     end
     vm.vm.synced_folder '.', '/vagrant', type: "rsync"
-    @hosts.get(host).each do |ip|
+    @hosts.get(host).ip.each do |ip|
       vm.vm.network :private_network, :ip => ip
     end
+
     vm.vm.hostname = @hosts.fqdn(host)
+
     vm.vm.provision 'shell' do |s|
-      s.path = common + 'pre.sh'
-      s.args = [ @hosts.to_s ]
+      s.path = common + 'network.sh'
+      s.args = [ @ipv4_default_gw, @hosts.to_s ]
     end
+
     vm.vm.provision 'shell' do |s|
       s.path = common + 'repos/openstack.sh'
       s.args = [ platform, openstack, openstack_version, "#{flea}" ]

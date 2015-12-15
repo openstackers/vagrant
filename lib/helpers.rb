@@ -33,7 +33,7 @@ def openstack
 end
 
 def openstack_version
-  ENV['VAGRANT_OPENSTACK_VERSION'] ||= '6'
+  ENV['VAGRANT_OPENSTACK_VERSION'] ||= '8'
 end
 
 def opm
@@ -56,51 +56,62 @@ def quickstack_branch
   ENV['VAGRANT_QUICKSTACK_BRANCH'] ||= 'master'
 end
 
+class Host
+  attr_reader :name, :ip, :ipv6
+
+  def initialize(name, ip: [], ipv6: [])
+    @name = name
+    @ip = ip
+    @ipv6 = ipv6
+  end
+end
+
 class Hosts
   include Enumerable
 
   def initialize(domain)
     @domain = domain
-    @hosts = {}
+    @hosts = []
+  end
+
+  def add(*args)
+    @hosts << Host.new(*args)
   end
 
   def each
     @hosts.each do |host|
-      yield host
+      yield host.name
     end
   end
 
-  def add(name, ip)
-    @hosts.merge!({ name => ip })
+  def fqdn(name)
+    "#{name}.#{@domain}" if self.include?(name)
   end
 
   def get(name)
-    @hosts[name] if @hosts.key?(name)
-  end
-
-  def fqdn(name)
-    "#{name}.#{@domain}" if @hosts.key?(name)
+    @hosts.each do |host|
+      return host if host.name == name
+    end
   end
 
   def to_s
     hosts = ""
-    @hosts.each do |name, ip|
-      hosts << "#{ip[0]} "
-      hosts << "#{name}.#{@domain} "
-      hosts << "#{name}\n"
+    @hosts.each do |host|
+      unless host.ip.empty?
+        hosts << "#{host.ip[0]} " << "#{host.name}.#{@domain} " << "#{host.name}\n"
+      end
+      unless host.ipv6.empty?
+        hosts << "#{host.ipv6[0]} " << "#{host.name}.#{@domain} " << "#{host.name}\n"
+      end
     end
     return hosts
   end
 
-  def name(name)
-    "#{name}" if @hosts.key?(name)
-  end
-
   def ansible_inventory
     hosts = "[test]\n"
-    @hosts.each do |name, ip|
-      hosts << "\# #{name}\n"
-      hosts << "#{ip[0]}\n"
+    @hosts.each do |host|
+      hosts << "\# #{host.name}\n"
+      hosts << "#{host.ip[0]}\n"
     end
     hosts << "\n"
     return hosts

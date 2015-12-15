@@ -1,0 +1,1000 @@
+/usr/bin/openstack role remove --group mygroup --group-domain default --project openstackv3 admin 
+openstack project list
+openstack project show openstackv3
+puppet apply -e "keystone_role_group {'admin,mygroup::Default': ensure => absent }"  
+. ./tokenrc
+puppet apply -e "keystone_role_group {'admin,mygroup::Default': ensure => absent }"  
+/usr/bin/openstack role remove admin --group mygroup --group-domain Default --project 3f100198bfd4437faca94b3be041b595
+openstack project list
+openstack role assignment list --group mygroup
+openstack group list
+openstack role list
+/usr/bin/openstack role remove admin --group mygroup --project openstackv3
+puppet apply -e "keystone_role_group {'admin,mygroup::Default': ensure => present, domains=>['domain1'], projects=>['openstack','openstackv3']}"  
+/usr/bin/openstack role add admin --group mygroup --group-domain Default --project openstackv3
+/usr/bin/openstack role add admin --group mygroup --group-domain Default --project openstackv3 --project-domain admin_domain
+/usr/bin/openstack role add admin --group mygroup --group-domain default --project openstackv3 --project-domain admin_domain
+/usr/bin/openstack role add admin --group mygroup --group-domain default  --project openstackv3 --project-domain 13cc6366f09c4767a86e62a0068742d5
+/usr/bin/openstack role add admin --group mygroup --group-domain default --project openstackv3 --project-domain default
+/usr/bin/openstack role add admin --group mygroup  --project openstackv3 
+openstack help group
+openstack group show mygrou
+openstack group show mygroup
+openstack group list mygroup
+openstack group list 
+openstack group list --long
+openstack user list
+openstack user show user1
+openstack group contains user
+openstack group contains user mygroup
+openstack group contains user mygroup admin
+openstack group contains user mygroup user1
+/usr/bin/openstack role add admin --group mygroup  --project openstackv3 
+openstack role show admin
+/usr/bin/openstack role add admin --group mygroup --group-domain admin_domain --project openstackv3 
+/usr/bin/openstack role add admin --group mygroup --group-domain admin_domain --project openstackv3 --project-domain admin_domain
+less /etc/keystone/
+less /etc/keystone/keystone.conf 
+grep default /etc/keystone/keystone.conf 
+grep default /etc/keystone/keystone.conf | grep -v #
+grep default /etc/keystone/keystone.conf | grep -v '#'
+/usr/bin/openstack role add admin --group mygroup --group-domain default --project openstackv3 --project-domain admin_domain
+/usr/bin/openstack role add admin --group mygroup --group-domain default --project openstack
+openstack project show openstackv3
+/usr/bin/openstack role add admin --group mygroup --group-domain default --project openstack --project-domain 13cc6366f09c4767a86e62a0068742d5
+openstack project show openstack
+openstack role assignment list --group mygroup
+/usr/bin/openstack role add admin --group mygroup --group-domain default --project openstack --project-domain admin_domain
+rpm -qa python_openstackclient-1.5.1
+rpm -qi python_openstackclient-1.5.1
+rpm -qi python_openstackclient
+rpm -qa | grep openstackclient
+rpm -qi python-openstackclient
+rpm -qil python-openstackclient
+vim /usr/lib/python2.7/site-packages/openstackclient/identity/v3/role.py
+yum install vim
+vim /usr/lib/python2.7/site-packages/openstackclient/identity/v3/role.py
+/usr/bin/openstack role add admin --group mygroup --group-domain default --project openstack --project-domain admin_domain
+/usr/bin/openstack role add admin --group mygroup --group-domain default --project openstack --project-domain ault
+/usr/bin/openstack role add admin --group mygroup --group-domain default --project openstackv3 --project-domain admin_domain
+openstack help role add
+openstack role assignment list --group mygroup
+puppet apply -e "keystone_role_group {'admin,mygroup::Default': ensure => absent }"  
+openstack role assignment list --group mygroup
+ puppet resource keystone_role_group
+puppet apply -e "keystone_role_group {'admin,mygroup::Default': ensure => present, domains=>['domain1'], projects=>['openstack']}"  
+ puppet resource keystone_role_group
+puppet apply -e "keystone_role_group {'admin,mygroup::Default': ensure => present, domains=>['domain1'], projects=>['openstack::Default']}"  
+ puppet resource keystone_role_group
+openstack project show openstack
+openstack project list 
+ puppet resource keystone_role_group
+puppet apply -e "keystone_role_group {'admin,mygroup::Default': ensure => present, domains=>['domain1'], projects=>['openstack::Default','openstackv3::admin_domain]}"  
+puppet apply -e "keystone_role_group {'admin,mygroup::Default': ensure => present, domains=>['domain1'], projects=>['openstack::Default','openstackv3::admin_domain']}"  
+ puppet resource keystone_role_group
+puppet apply -e "keystone_role_group {'admin,mygroup::Default': ensure => present, domains=>['domain1'], projects=>[]}"  
+ puppet resource keystone_role_group
+puppet apply -e "keystone_role_group {'admin,mygroup::Default': ensure => present, domains=>['domain1']}"  
+ puppet resource keystone_role_group
+git checkout master
+yum update
+less /etc/yum.repos.d/rdo-release.repo 
+less /etc/yum.repos.d/delorean.repo 
+history | grep apply
+cat openrc_v3
+cat tokenrc
+openstack --version
+user list --group beaker --long
+openstack user list --group beaker --long
+. ./openrc_v3
+openstack user list --group beaker --long
+openstack group list
+openstack user list --group mygroup --long
+openstack user list --group group --long
+openstack user list --group group2 --long
+openstack help user 
+openstack help user list
+openstack help user create
+puppet resource keystone_group
+openstack user list 
+openstack group add user1 --group mygroup 
+openstack group add user user1 --group mygroup 
+openstack group add user mygroup user1 
+openstack user list --group group2 --long
+openstack user list --group mygroup --long
+puppet resource kestone_group
+puppet resource keystone_group
+puppet resource keystone_group --trce
+puppet resource keystone_group --tarce
+puppet resource keystone_group --trace
+puppet resource keystone_group
+openstack group list --long
+puppet resource keystone_group
+openstack user create user2
+openstack group add user mygroup user2
+puppet resource keystone_group
+openstack group list --long
+openstack user list --group mygroup --long
+puppet resource keystone_group
+history | grep keystone_group
+puppet resource keystone_group group2::Default ensure=absent
+history | grep keystone_group
+puppet resource keystone_group
+puppet resource keystone_group group2::Default ensure=present
+puppet resource keystone_group group2::Default ensure=present description=group2
+puppet resource keystone_group
+puppet resource keystone_group group2::Default ensure=absent
+puppet resource keystone_group
+puppet resource keystone_group group2::Default ensure=present description=group2
+puppet resource keystone_group
+openstack group list --long
+openstack group list 
+puppet resource keystone_group
+puppet apply -e "keystone_group {"group2::Default": users=[user1]
+puppet apply -e "keystone_group {"group2::Default": users=['user1']"
+puppet apply -e "keystone_group {'group2::Default': users=['user1']"
+puppet apply -e "keystone_group {'group2::Default': users=>['user1']"
+puppet apply -e "keystone_group {'group2::Default': users=>['user1']}"
+puppet apply -e "keystone_group {'group2::Default': users=>['user1']}" --trace
+puppet apply -e "keystone_group {'group2::Default': users=>['user1']}"
+puppet resource keystone_group
+openstack help group set
+puppet apply -e "keystone_group {'group2::Default': users=>['user1']}"
+puppet apply -e "keystone_group {'group2::Default': users=>['user1']}" --trace
+puppet apply -e "keystone_group {'group2::Default': users=>['user1']}"
+openstack help group set
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group2::Default': users=>[]}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'mygroup::Default': description='mygroup2'}"
+puppet apply -e "keystone_group {'mygroup::Default': description=>'mygroup2'}"
+puppet resource keystone_group
+openstack group set 4250d93829774b77b864aaf45aef1a35 --description=test
+puppet resource keystone_group
+puppet apply -e "keystone_group {'mygroup::Default': description=>'mygroup2', users=['user2::Default']}"
+puppet apply -e "keystone_group {'mygroup::Default': description=>'mygroup2', users=>['user2::Default']}"
+puppet apply -e "keystone_group {'mygroup::Default': description=>'mygroup2', users=>['user2']}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'mygroup::Default': description=>'mygroup2', users=>['user2']}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'mygroup::Default': description=>'mygroup2', users=>['user2']}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'mygroup::Default': description=>'mygroup2', users=>['user2']}"
+puppet apply -e "keystone_group {'mygroup::Default': description=>'mygroup2', users=>['user2']}" --string
+puppet apply -e "keystone_group {'mygroup::Default': description=>'mygroup2', users=>['user2']}" --trace
+puppet apply -e "keystone_group {'mygroup::Default': description=>'mygroup2', users=>['user2']}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'mygroup::Default':  users=>[]}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'mygroup::Default': description=>'mygroup2', users=>['user2']}"
+puppet apply -e "keystone_group {'mygroup::Default': description=>'mygroup 2', users=>['user2']}"
+puppet apply -e "keystone_group {'mygroup::Default': description=>'mygroup2', users=>['user2']}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': description=>'mygroup 3'}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': description=>'mygroup 3'}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': description=>'mygroup 3'}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user1']}"
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}" --trace
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}" --trace
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}" -
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}" 
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}" --trace
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}" 
+openstack group list
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}" 
+openstack group list
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': users=>['user2::Default']}" 
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': users=>['user2::Default']}" 
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2::Default']}" --trace
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2::Default']}" 
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2::Default']}" 
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': users=>['user2::Default']}" 
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2::Default']}" 
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': users=>['user2::Default']}" 
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2::Default']}" 
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2::Default']}" 
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}" 
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}" 
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}" 
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}" 
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}" 
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}" 
+puppet apply -e "keystone_group {'group3::Default': description=>'blah'}" 
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}" 
+puppet apply -e "keystone_group {'group3::Default': description=>'blah'}" 
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': description=>'blah'}" 
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': description=>'blah'}" 
+puppet apply -e "keystone_group {'group3::Default': description=>'blah'}" --trace
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': description=>'blah'}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': description=>'blah'}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': description=>'blah'}"
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': users=>['user2']}" 
+puppet resource keystone_group
+openstack user show user2
+. ./openrc_v
+. ./openrc_v3
+. ./openrc_v
+openstack user show user2
+openstack user show user2 --long
+openstack help user show user2 
+openstack help user show user2 --domain default 
+openstack help user show user2 --domain Default 
+openstack help user show user2 
+openstack help user show user2 --domain Default 
+openstack help user show user2 --domain default 
+. ./openrc_v3
+openstack help user show user2 --domain default 
+openstack help user show --domain default user2
+openstack user show user2 --domain default 
+openstack user show user2 --domain Default 
+puppet apply -e "keystone_group {'group3::Default': users=>[]}" 
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': users=>['user1::Default']}" 
+openstak user list
+openstack user list
+puppet apply -e "keystone_group {'group3::Default': users=>['user2::Default']}" 
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2::Default']}" 
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': users=>['user2::Default']}" 
+puppet resource keystone_group
+openstack group create --format shell group_test --domain Default --description foo
+puppet apply -e "keystone_group {'group3::Default': users=>['user2::Default','user1::admin_domain]}" 
+puppet apply -e "keystone_group {'group3::Default': users=>['user2::Default','user1::admin_domain']}" 
+openstack user list 
+openstack user list --long
+openstack domain list 
+puppet apply -e "keystone_group {'group3::Default': users=>['user2::Default','user1::domain1']}" 
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': ensure=>:present, description=>'blah',  users=>['user2::Default','user1::domain1']}" 
+puppet apply -e "keystone_group {'group3::Default': ensure=>present, description=>'blah',  users=>['user2::Default','user1::domain1']}" 
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': ensure=>present, description=>'blah',  users=>['user2::Default','user1::domain1']}" 
+puppet resource keystone_group
+puppet apply -e "keystone_group {'group3::Default': ensure => absent}"
+puppet apply -e "keystone_group {'group3::Default': ensure=>present, description=>'blah',  users=>['user2::Default','user1::domain1']}" 
+puppet resource keystone_group
+openstack user show --format shell user1 --domain domain1
+yum update
+puppet resource keystone_role_group
+puppet resource keystone_user_role
+puppet resource keystone_role_group
+. ./openrc_v3
+openstack catalog list
+/usr/bin/openstack --os-identity-api-version 3 domain list
+echo openrc_v3
+cat openrc_v3
+/usr/bin/openstack --os-identity-api-version 3 domain list --debug | grep tokens
+/usr/bin/openstack --os-identity-api-version 3 domain list
+. ./openrc_v2 
+cat openrc_v2
+/usr/bin/openstack --os-identity-api-version 3 domain list
+/usr/bin/openstack --os-identity-api-version 3 domain list | grep tokens
+/usr/bin/openstack --os-identity-api-version 3 domain list --debug | grep tokens
+/usr/bin/openstack --os-identity-api-version 3 domain list --debug | grep auth
+/usr/bin/openstack --os-identity-api-version 3 domain list --debug | grep auth.identity
+/usr/bin/openstack --os-identity-api-version 3 domain list --debug 1&>2| grep auth.identity
+ls
+rm 2
+. ./openrc_v3
+echo $OS_AUTH_URL
+openstack catalog list
+. ./openrc_v2
+echo $OS_AUTH_URL
+openstack catalog list
+cat openrc_v3
+cat openrc_v2
+. ./openrc_v3
+puppet resource keystone_role_group
+openstack role add --format shell --group group1 --group-domain Default --domain domain
+. ./openrc_v3
+openstack role add --format shell --group group1 --group-domain Default --domain domain
+openstack help role add
+openstack role add  --group group1 --group-domain Default --domain domain
+openstack role lsit
+openstack role list
+openstack role create role1
+openstack role add  --group group1 --group-domain Default --domain domain role1
+openstack group create group11
+openstack group create group1
+openstack role add  --group group1 --group-domain Default --domain domain role1
+openstack domain create domain1
+openstack domain list
+openstack domain show domain1
+openstack role add  --group group1 --group-domain Default --domain domain1 role1
+openstack role add  --group group1 --group-domain Default --domain domain1 role1 --f
+openstack role list
+openstack role 
+openstack role assigment list
+openstack role assignment list
+openstack help role assignment list
+openstack role assignment list
+os
+alias os=/usr/bin/openstack
+os 
+os group list --quiet -f csv
+os group list --quiet -f csv -long
+os group list --quiet -f csv --long
+role assignment, list, --quiet, --format, csv, [--group, group1]
+os role assignment, list, --quiet, --format, csv, [--group, group1]
+os role assignment list --quiet --format csv [--group, group1]
+os role assignment list --quiet --format csv --group group1
+os group show -f shell group1
+os role list --quiet -f csv
+os domain list --quiet -f csv
+os project list --quiet -f csv
+puppet resource keystone_role_group
+history | grep keystone_role_group {
+. ./openrc_v3
+puppet resource keystone_role_group
+openstack role add --format shell --group group1 --group-domain Default --domain domain
+. ./openrc_v3
+openstack role add --format shell --group group1 --group-domain Default --domain domain
+openstack help role add
+openstack role add  --group group1 --group-domain Default --domain domain
+openstack role lsit
+openstack role list
+openstack role create role1
+openstack role add  --group group1 --group-domain Default --domain domain role1
+openstack group create group11
+openstack group create group1
+openstack role add  --group group1 --group-domain Default --domain domain role1
+openstack domain create domain1
+openstack domain list
+openstack domain show domain1
+openstack role add  --group group1 --group-domain Default --domain domain1 role1
+openstack role add  --group group1 --group-domain Default --domain domain1 role1 --f
+openstack role list
+openstack role 
+openstack role assigment list
+openstack role assignment list
+openstack help role assignment list
+openstack role assignment list
+os
+alias os=/usr/bin/openstack
+os 
+os group list --quiet -f csv
+os group list --quiet -f csv -long
+os group list --quiet -f csv --long
+role assignment, list, --quiet, --format, csv, [--group, group1]
+os role assignment, list, --quiet, --format, csv, [--group, group1]
+os role assignment list --quiet --format csv [--group, group1]
+os role assignment list --quiet --format csv --group group1
+os group show -f shell group1
+os role list --quiet -f csv
+os domain list --quiet -f csv
+os project list --quiet -f csv
+puppet resource keystone_role_group
+history | grep keystone_role_group {
+history | grep keystone_role_group 
+puppet apply -e "keystone_role_group {'role1,group1::group1_domain': ensure => present, domains=>['domain1'], projects=>['project1::project1_domain']}"
+os domain list --quiet -f csv
+os group --quiet -f csv
+os group lsit --quiet -f csv
+os group list --quiet -f csv
+os group list --quiet -f csv --long
+puppet apply -e "keystone_role_group {'role1,group1::Default': ensure => present, domains=>['domain1'], projects=>['project1::project1_domain']}"
+os project list
+os project list --long
+os project create project1 
+puppet apply -e "keystone_role_group {'role1,group1::Default': ensure => present, domains=>['domain1'], projects=>['project1::Default']}"
+ls
+vi bootstrap.pp 
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+cat bootstrap.pp 
+cat bootstrap.pp > endpoint.pp
+vi endpoint.pp 
+puppet apply endpoint.pp 
+alias os=/usr/bin/openstack
+. ./openrc_v3
+os catalog list
+vi endpoint.pp 
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+. ./openrc_v2
+os catalog list
+alias os=/usr/bin/openstack
+os catalog list
+. ./tokenrcv2 
+os catalog list
+alias os=/usr/bin/openstack
+os catalog list
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+cat tokenrcv3
+cat tokenrc
+cat tokenrcv2 
+. ./tokenrc
+os catalog list
+export OS_URL=http://127.0.0.1:35357/v3
+export OS_URL=http://127.0.0.1:35357
+os catalog list
+vi endpoint.pp 
+puppet apply endpoint.pp 
+. ./openrc_v3
+. ./openrc_v2
+puppet apply endpoint.pp 
+openstack catalog list
+. ./openrc_v3
+openstack catalog list
+. ./tokenrc
+openstack catalog list
+vi /usr/share/openstack-puppet/modules/keystone/lib/puppet/provider/keystone_endpoint/
+vi /usr/share/openstack-puppet/modules/keystone/lib/puppet/provider/keystone_endpoint/openstack.rb 
+puppet apply endpoint.pp 
+. ./openrc_v3
+puppet apply endpoint.pp 
+. ./openrc_v2
+puppet apply endpoint.pp 
+alias os=/usr/bin/openstack
+os endpoint list
+. ./openrc_v3
+os endpoint list
+. ./tokenrc
+os endpoint list
+alias os=/usr/bin/openstack
+os endpoint list
+. ./tokenrcv2
+os endpoint list
+alias os=/usr/bin/openstack
+os endpoint list
+os endpoint list --long
+. ./openrc_v3
+os endpoint list --long
+alias os=/usr/bin/openstack
+os endpoint list --long
+os endpoint list 
+alias os=/usr/bin/openstack
+. ./openrc_v3
+. ./tokenrc
+alias os=/usr/bin/openstack
+os endpoint list 
+os catalog list 
+. ./tokenrc_v2
+. ./tokenrcv2
+os catalog list 
+alias os=/usr/bin/openstack
+os catalog list 
+os endpoint list 
+os endpoint list --long
+history | grep 35357
+cat tokenrc
+openstack endpoint set --adminurl http://127.0.0.1:35357/v2.0  keystone --region RegionOne
+openstack endpoint create --adminurl http://127.0.0.1:35357/v2.0  keystone --region RegionOne
+openstack help endpoint
+openstack endpoint delete 02273e90e7204f89bd022b0aab7fbbd3
+openstack endpoint create --adminurl http://127.0.0.1:35357/v2.0 --internalurl http://192.168.65.11:5000 --publicurl http://192.168.65.11:5000 --region RegionOne
+openstack endpoint create --adminurl http://127.0.0.1:35357/v2.0 --internalurl http://192.168.65.11:5000 --publicurl http://192.168.65.11:5000 --region RegionOne keystone
+. ./openrc_v2
+os catalog list 
+alias os=/usr/bin/openstack
+os catalog list 
+os endpoint list 
+os endpoint delete 68b9219be4d84b63a8ca83df253892f5
+vi endpoint.pp 
+puppet apply endpoint.pp 
+os catalog list 
+history | grep vi
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+puppet apply endpoint.pp 
+os endpoint list 
+os endpoint delete 95654ad4f3b24305a55ad2a2b76658d9
+puppet apply endpoint.pp 
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+os endpoint list 
+os endpoint delete 067b8f5887dc4af0b835df9a23049b2f
+puppet apply endpoint.pp 
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+vi /var/lib/hiera/defaults.yaml 
+os endpoint list 
+os endpoint delete d34ab56a85af4b1eb50554e839c01230
+puppet apply endpoint.pp 
+vi /var/lib/hiera/defaults.yaml 
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+os endpoint list 
+os endpoint delete 7e43ac6f08c9422dbcd8bba91e50e1af
+puppet apply endpoint.pp 
+less /var/log/messages
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+os endpoint list 
+os endpoint delete 0ca4f44fb33d4252a78788ecc9d1a3a3
+puppet apply endpoint.pp 
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+vi /var/lib/hiera/defaults.yaml 
+puppet apply /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+os endpoint list 
+os endpoint delete e05a649afc274972ab646461cbe6ad33
+puppet apply /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+vi /vagrant/site.pp 
+puppet apply /vagrant/site.pp 
+os catalog list
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+os endpoint delete 
+os endpoint list 
+os endpoint delete 674098bb999b4a7c8e3202dc3b341e0f
+puppet apply /vagrant/site.pp 
+os endpoint list 
+os catalog list
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+os endpoint list 
+os endpoint delete ad89af6e9cb0450caffa740d81e8b70c
+puppet apply /vagrant/site.pp
+os catalog list
+os catalog list -f
+os catalog list -f value
+os endpoint list
+os endpoint delete 3901feb4228b4081a591d74935f6fa21
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+puppet apply /vagrant/site.pp
+os endpoint list 
+os catalog list -f value
+. ./openrc_v3
+os catalog list -f value
+alias os=/usr/bin/openstack
+os catalog list -f value
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+vi /var/lib/hiera/defaults.yaml 
+cat openrc_v3
+vi openrc_v3
+alias os=/usr/bin/openstack
+os catalog list -f value
+grep admin /etc/keystone/keystone.conf
+vim /etc/keystone/keystone.conf
+grep ssl /etc/keystone/keystone.conf
+vim /etc/keystone/keystone.conf
+cat tokenrc
+cat tokenrcv2 
+os catalog list -f value
+alias os=/usr/bin/openstack
+os catalog list -f value
+. ./tokenrc
+os catalog list -f value
+cat tokenrcv2 
+cat tokenrc
+vi tokenrcv2 
+cat tokenrc
+vi tokenrcv2 
+vi tokenrc
+. ./tokenrc
+os catalog list -f value
+vi tokenrc
+. ./tokenrc
+os catalog list -f value
+. ./openrc_v3
+os catalog list -f value
+. ./openrc_v2
+os catalog list -f value
+alias os=/usr/bin/openstack
+os catalog list -f value
+os endpoint delete 3901feb4228b4081a591d74935f6fa21
+os endpoint list
+os endpoint delete 414835a0cb0e452cb4a6a31f83bf6270
+vi endpoint.pp 
+vi /var/lib/hiera/defaults.yaml 
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+puppet apply /vagrant/site.pp
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+puppet apply /vagrant/site.pp
+os catalog list -f value
+os endpoint delete 
+os endpoint list
+os endpoint delete 811dc50f74ab48d2ae8efe1f4584ef78
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+puppet apply /vagrant/site.pp
+vi /usr/share/openstack-puppet/modules/keystone/manifests/endpoint.pp 
+puppet apply /vagrant/site.pp
+os catalog list -f value
+cat tokenrc
+. ./tokenrc
+alias os=/usr/bin/openstack
+os catalog list -f value
+vi tokenrc
+. ./tokenrc
+os catalog list -f value
+vi /etc/keystone/keystone.conf
+systemctl restart keystone
+systemctl restart openstack-keystone
+os catalog list -f value
+os catalog list -f value --debug
+os endpoint list -f value --debug
+os endpoint list -f value 
+os endpoint list -f 
+os endpoint list 
+vi /vagrant/site.pp 
+puppet apply /vagrant/site.pp
+less endpoint.pp 
+vi bootstrap.pp 
+netstat -rn
+netstat -taupen
+os endpoint list -f 
+os endpoint list 
+. ./openrc_v3
+os endpoint list 
+less /usr/share/openstack-puppet/modules/keystone/lib/puppet/provider/keystone.rb 
+puppet apply /vagrant/site.pp
+vi /var/lib/hiera/defaults.yaml 
+ls
+vi bootstrap.pp 
+ls
+vi bootstrap.pp 
+puppet apply -e bootstrap.pp
+vi bootstrap.pp 
+puppet apply bootstrap.pp
+vi bootstrap.pp 
+puppet apply bootstrap.pp
+puppet apply -e "class { '::keystone::endpoint': public_url => 'http://192.168.64.11:5000', admin_url => 'http://127.0.0.1:35357'}"
+puppet apply bootstrap.pp
+less bootstrap.pp 
+vi tokenrcv2 
+vi tokenrcv3
+vi tokenrc
+. ./tokenrc
+alias os=/usr/bin/openstack
+os endpoint list 
+os endpoint catalog list
+os catalog list
+os endpoint list 
+. ./tokenrcv2 
+os catalog list
+alias os=/usr/bin/openstack
+os catalog list
+vi endpoint.pp 
+vi /var/lib/hiera/defaults.yaml 
+vi bootstrap.pp 
+vi endpoint.pp 
+os endpoint list 
+os catalog list 
+os help catalog
+os service list 
+os endpoint list --long
+alias os=/usr/bin/openstack
+os endpoint list --long
+. ./openrc_v
+. ./openrc_v3
+cat openrc_v3
+vi openrc_v3
+cat openrc_v2
+alias os=/usr/bin/openstack
+os user list
+. ./openrc_v3
+os user list
+os help user
+os user password set user1
+os user password set user1 --password
+os user password set user1 --password blah
+os help user
+os help user set
+os help set user1 --password-prompt
+os set user1 --password-prompt
+os user set user1 --password-prompt
+os token issue -f value
+os token issue -f value --os-password blah1 --os-user user1
+os token issue -f value --os-password blah1 --os-username user1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3
+os project list --user user1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-domain-name tenant1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-domain-name tenant1 --os-auth-url http://127.0.0.1:5000
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-domain-name tenant1 --os-auth-url https://127.0.0.1:5000
+cat openrc_v3
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-domain-name tenant1 --os-auth-url https://192.168.64.11:5000
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-domain-name tenant1 --os-auth-url https://192.168.64.11:5000/v3
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-domain-name tenant1 --os-auth-url http://192.168.64.11:5000/v3
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-domain-name tenant1 --os-auth-url http://192.168.64.11:5000
+cat openrc_v3
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name --os-project-domain-name
+os user list --long
+os domain list
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name domain1--os-project-domain-name domain1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 2
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 2 --os-domain-name domain1
+os set user2 --password-prompt
+os set user2 --password-prompt --os-identity-api-version 2
+. ./openrc_v2
+os set user2 --password-prompt
+alias os=/usr/bin/openstack
+os setuser2 --password-prompt
+alias os=/usr/bin/openstack
+. ./openrc_v3
+os user set user2 --password-prompt
+os token issue -f value --os-password blah1 --os-username user2 --os-identity-api-version 2 
+os token issue -f value --os-password blah1 --os-username user2 --os-identity-api-version 3
+os token issue -f value --os-password blah1 --os-username user2 --os-identity-api-version 3 --os-default-domain Default
+os token issue -f value --os-password blah1 --os-username user2 --os-identity-api-version 3 --os-default-domain default
+os token issue -f value --os-password blah1 --os-username user2 --os-identity-api-version 2 --os-default-domain default
+os token issue -f value --os-password blah1 --os-username user2 --os-identity-api-version 3 --os-default-domain default
+alias os=/usr/bin/openstack
+os token issue -f value --os-password blah1 --os-username user2 --os-identity-api-version 3 --os-default-domain default
+os token issue -f value --os-password blah1 --os-username user2 --os-identity-api-version 3 --os-default-domain default --os-auth-url http://192.168.64.11:5000/v3
+os token issue -f value --os-password blah1 --os-username user2 --os-identity-api-version 3 --os-domain-name default --os-auth-url http://192.168.64.11:5000/v3 
+os token issue -f value --os-password blah --os-username user2 --os-identity-api-version 3 --os-domain-name default --os-auth-url http://192.168.64.11:5000/v3 
+os token issue -f value --os-password blah --os-username user2 --os-identity-api-version 3 --os-domain-name default --os-project-name tenant2 --os-auth-url http://192.168.64.11:5000/v3  
+os project list
+. ./openrc_v3
+os project list
+os project show project1
+os user show user2
+os user show user2 --long
+os user list --long
+os project list --long
+os token issue -f value --os-password blah --os-username user2 --os-identity-api-version 3 --os-domain-name default --os-project-name project1 --os-auth-url http://192.168.64.11:5000/v3  
+os token issue -f value --os-password blah --os-username user2 --os-identity-api-version 3 --os-domain-name default --os-project-name project1 --os-auth-url http://192.168.64.11:5000/v3  --help
+os --help
+man os
+man openstack
+os token issue -f value --os-password blah --os-username user2 --os-identity-api-version 3 --os-domain-name default --os-project-name project1 --os-auth-url http://192.168.64.11:5000/v3 
+os token issue -f value --os-password blah --os-username user2 --os-identity-api-version 3 --os-domain-name default --os-auth-url http://192.168.64.11:5000/v3 
+os token issue -f value --os-password blah --os-username user2 --os-identity-api-version 3 --os-domain-name default --os-project-name project1 --os-auth-url http://192.168.64.11:5000/v3 
+history 
+os token issue -f value --os-password blah --os-username user2 --os-identity-api-version 3 --os-domain-name default --os-project-name project1 --os-auth-url http://192.168.64.11:5000/v3 
+alias os=/usr/bin/openstack
+os token issue -f value --os-password blah --os-username user2 --os-identity-api-version 3 --os-domain-name default --os-project-name project1 --os-auth-url http://192.168.64.11:5000/v3 
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-password blah --os-username user2 --os-identity-api-version 3 --os-project-name project1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name default --os-project-domain-name default
+os token issue -f value --os-password blah --os-username user2 --os-identity-api-version 3 --os-project-name project1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name Default --os-project-domain-name Default
+os token issue -f value --os-password blah --os-username user2 --os-identity-api-version 2 --os-project-name project1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name Default --os-project-domain-name Default
+os token issue -f value --os-password blah --os-username user2 --os-identity-api-version 3 --os-project-name project1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name Default --os-project-domain-name Default
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-password blah1 --os-username user1 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000 --os-user-domain-name domain1 --os-project-domain-name domain1
+alias os=/usr/bin/openstack
+os token issue -f value --os-password blah1 --os-username user1 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 2 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000 --os-user-domain-name domain1 --os-project-domain-name domain1
+alias os=/usr/bin/openstack
+os role assignment list
+os role list
+. ./openrc_v2
+os role list
+os help user
+os user role list
+os role add
+os role add --project project1 --user user2 _member_
+os role list
+os user role list
+os user role list --user user2
+os user role list user2
+os user create u3
+os project create p3
+os role add --project p3 --user u3  _member_
+os user role list u3
+os user set u3 --password blah
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000/v2
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000/v2.0
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-domain-name Defaul
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-domain-name Default
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-domain-name Default --os-project-domain-name Default
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-domain-name Default --os-project-domain-name Default --os-user-domain-name Default 
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 2 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-project-name Default --os-project-domain-name Default --os-user-domain-name Default 
+cat openrc_v2
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-tenant-name Default --os-project-domain-name Default --os-user-domain-name Default 
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-tenant-name Default --os-project-domain-name Default
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-tenant-name Default --os-project-domain-name Default --os-region-name RegionOne
+. ./openrc_v2
+alias os=/usr/bin/openstack
+os user list
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-project-name p3 --os-project-domain-name Default --os-user-domain-name Default 
+alias os=/usr/bin/openstack
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-project-name p3 --os-project-domain-name Default --os-user-domain-name Default 
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-project-name p3 
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000/v2 --os-project-name p3 
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000/v2.0 --os-project-name p3 
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000/v3 --os-project-name p3 
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-project-name p3 
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-project-name p3 --os-identity-api-version 3
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-project-name p3 --os-identity-api-version 2
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-project-name p3 --os-identity-api-version 3
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000/v2.0 --os-project-name p3 --os-identity-api-version 3
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000/v3 --os-project-name p3 --os-identity-api-version 3
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 2 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000 --os-domain-name domain1 
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 2 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000 --os-domain domain1 
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 2 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000 --os-domain-name domain1 
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 2 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000 
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000 
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 2 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 2 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000  --os-project-domain-name domain1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 2 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000  --os-user-domain-name domain1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 2 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000  --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000 --os-user-domain-name domain1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name domain1 
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-project-domain-name domain1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-domain-name domain1
+os user list
+. ./openrc_v3
+os user list
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000 --os-domain-name domain1
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000/v2.0 --os-project-name p3 --os-identity-api-version 3
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-project-name p3 --os-identity-api-version 3
+os token issue -f value --os-password blah --os-user-id 9ab8dc430a1341628a841dd6854394c2 --os-auth-url http://192.168.64.11:5000 --os-project-name p3 --os-identity-api-version 3
+os token issue -f value --os-password blah --os-user-id 9ab8dc430a1341628a841dd6854394c2 --os-auth-url http://192.168.64.11:5000 --os-project-name p3 --os-identity-api-version 2
+history 
+ os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000/v3 --os-project-name p3 --os-identity-api-version 3
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000/v3 --os-project-name p3 --os-identity-api-version 3
+alias os=/usr/bin/openstack
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000/v3 --os-project-name p3 --os-identity-api-version 3
+os token issue -f value --os-password blah --os-username u3 --os-auth-url http://192.168.64.11:5000 --os-project-name p3 --os-identity-api-version 3
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password blah --os-username u3
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password blah --os-user
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password blah --os-user-id 9ab8dc430a1341628a841dd6854394c2
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password blah --os-user-id 9ab8dc430a1341628a841dd6854394c2 --os-username u3
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password blah --os-user-id 9ab8dc430a1341628a841dd6854394c2 --os-username u3 --os-project-name p3 
+os user list
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000 --os-domain-name domain1
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name domain1 --os-project-domain-name domain1
+alias os=/usr/bin/openstack
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-project-name tenant1
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password blah1 --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-project-name tenant1
+ 
+os token issue -f value --os-auth-url http://192.168.64.11:5000/v3 --os-password blah1 --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-project-name tenant1
+os project list
+. ./openrc_v3
+alias os=/usr/bin/openstack
+os project list
+os project list --long
+os token issue -f value --os-auth-url http://192.168.64.11:5000/v3 --os-password blah1 --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-project-name tenant1 --os-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000/v3 --os-password blah1 --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-project-name tenant1 
+os token issue -f value --os-auth-url http://192.168.64.11:5000/v3 --os-password blah1 --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-project-name tenant1 --os-domain-name domain1
+alias os=/usr/bin/openstack
+os token issue -f value --os-auth-url http://192.168.64.11:5000/v3 --os-password blah1 --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-project-name tenant1 --os-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password blah1 --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-project-name tenant1 [D
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password blah1 --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-project-name tenant1
+history 
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password blah1 --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-project-name tenant1 --os-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password a_big_secret --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-project-name tenant1 --os-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password a_big_secret --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password blah1 --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-domain-name domain1
+alias os=/usr/bin/openstack
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password blah1 --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-domain-name domain1
+os user list
+. ./openrc_v3
+os user set user1 --password blah
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-domain-name domain1
+alias os=/usr/bin/openstack
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-identity-api-version 3--os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-identity-api-version 3 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000/v3 --os-identity-api-version 3 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-domain-name domain1
+os user list --show
+os user list --long
+ . ./openrc_v3
+os user list --long
+os domain list
+os token issue -f value --os-auth-url http://192.168.64.11:5000/v3 --os-identity-api-version 3 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-user-domain-name domain1 --os-project-domain-name domain1
+history | grep token
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name domain1 --os-project-domain-name domain1
+alias os=/usr/bin/openstack
+os token issue -f value --os-password blah1 --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-password blah --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000/v3 --os-identity-api-version 3 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000/v3 --os-identity-api-version 3 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000/v3 --os-identity-api-version 3 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-username user1 --os-domain-name domain1 --debug
+os token issue -f value --os-password blah --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-identity-api-version 3 --os-username user1 --os-password blah --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-identity-api-version 3 --os-username user1 --os-password blah -os-project-name tenant1 ---os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-identity-api-version 3 --os-username user1 --os-password blah -os-project-name tenant1 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000/v3 --os-identity-api-version 3 --os-username user1 --os-password blah -os-project-name tenant1 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-password blah --os-username user1 --os-identity-api-version 3 --os-project-name tenant1 --os-auth-url http://192.168.64.11:5000/v3 --os-user-domain-name domain1 --os-project-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000/v3 --os-identity-api-version 3 --os-username user1 --os-password blah -os-project-name tenant1 ---os-user-domain-name domain1 --os-project-domain-name domain1 
+os token issue -f value --os-auth-url http://192.168.64.11:5000/v3 --os-identity-api-version 3 --os-username user1 --os-password blah --os-project-name tenant1 --os-user-domain-name domain1 --os-project-domain-name domain1 
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-identity-api-version 3 --os-username user1 --os-password blah --os-project-name tenant1 --os-user-domain-name domain1 --os-project-domain-name domain1 
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-identity-api-version 3 --os-username user1 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-identity-api-version 3 --os-username user1 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-domain-name domain1
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-identity-api-version 3 --os-username user1 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-domain-name domain1 --os-user-domain-name domain1 --os-project-domain-name domain1 
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-identity-api-version 3 --os-username user1 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-domain-name project1 --os-user-domain-name domain1 --os-project-domain-name domain1 
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-identity-api-version 3 --os-username user1 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-domain-name tenant1 --os-user-domain-name domain1 --os-project-domain-name domain1 
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-identity-api-version 3 --os-username user1 --os-password blah --os-project-name tenant1 --os-user-domain-name domain1 --os-project-domain-name domain1 
+os user list
+. ./openrc_v3
+os user list
+alias os=/usr/bin/openstack
+os user list
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-identity-api-version 3 --os-username user1 --os-password blah --os-project-name tenant1 --os-user-domain-name domain1 --os-project-domain-name domain1 
+alias os=/usr/bin/openstack
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-identity-api-version 3 --os-username user1 --os-password blah --os-project-name tenant1 --os-user-domain-name domain1 --os-project-domain-name domain1 
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-identity-api-version 3 --os-username user1 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-project-name tenant1 --os-user-domain-name domain1 --os-project-domain-name domain1 
+os token issue -f value --os-auth-url http://192.168.64.11:5000 --os-identity-api-version 3 --os-username user1 --os-password blah --os-user-id ade624028dec45daba44b4978bdbda6b --os-project-name tenant1 
+. ./openrc_v3
+os user list
+os user list --long
+ac openrc_v3
+cat openrc_v3
+cat tokenrcv3
+cat tokenrc
+vi tokenrc
+. ./tokenrc
+openstack endpoint list
+vi tokenrc
+. ./tokenrc
+openstack endpoint list
+vi foo.pp
+apply site foo.pp 
+puppet apply foo.pp 
+vi foo.pp
+puppet apply foo.pp 
+vi foo.pp
+puppet apply foo.pp 
+vi foo.pp
+puppet apply foo.pp 
+history | grep trust
+puppet resource keystone_trust
+openstack --version
+alias os=/usr/bin/openstack
+openstack trust list
+openstack trust list --os-identity-api-version 3
+. ./tokenrc
+openstack trust list
+os project list
+os user list
+openstack trust create
+openstack trust create adminv3 user1
+openstack trust create adminv3 user1 --project openstackv3
+openstack trust create adminv3 user1 --project openstackv3 --role 
+os help trust
+openstack trust show 6ca43eef7bf14e478c6ef98b95d159a4 
+yum update
+diff /etc/keystone/keystone.conf /etc/keystone/keystone.conf.rpmnew
+openstack trust show 6ca43eef7bf14e478c6ef98b95d159a4 
+openstack trust lis
+openstack trust list
+openstack trust show 9792085f065a42968820b73b9b9f9dea
+os role list
+openstack trust create adminv3 user1 --project openstackv3 --role role1
